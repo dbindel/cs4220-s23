@@ -24,7 +24,7 @@
   date: 2023-02-03
   break: Floating point
   hw:
-    - text: HW1 due
+    - info: HW1 due
 #
 # ==================
 # Week 3 (linear solves)
@@ -39,7 +39,7 @@
   date: 2023-02-10
   info: Pivoting and blocking
   hw:
-    - text: HW2 due
+    - info: HW2 due
 #
 # ==================
 # Week 4 (structured solves)
@@ -54,7 +54,7 @@
   date: 2023-02-17
   info: Other structured systems
   hw:
-    - text: P1 check-in
+    - info: P1 check-in
 #
 # ==================
 # Week 5 (least squares)
@@ -69,7 +69,7 @@
   date: 2023-02-24
   info: Ill-posedness and regularization
   hw:
-    - text: P1 due
+    - info: P1 due
 #
 # ==================
 # Week 6 (least squares + eigen background)
@@ -86,7 +86,7 @@
   info: Applications of eigenvalue problems
   travel: SIAM CSE
   hw:
-    - text: HW3 due
+    - info: HW3 due
 #
 # ==================
 # Week 7 (eigenvalue methods)
@@ -95,7 +95,7 @@
   date: 2023-03-06
   info: Power iteration
   hw:
-    - text: Proj proposal (5223)
+    - info: Proj proposal (5223)
 -
   date: 2023-03-08
   info: From power methods to QR iteration
@@ -103,7 +103,7 @@
   date: 2023-03-10
   info: Hessenberg, tridiagonal, and bidiagonal
   hw:
-    - text: MT due
+    - info: MT due
 #
 # ==================
 # Week 8 (nonlinear solvers in 1D)
@@ -118,7 +118,7 @@
   date: 2023-03-17
   info: Krylov subspace iterations
   hw:
-    - text: HW4 due
+    - info: HW4 due
 #
 # ==================
 # Week 9 (linear iterative solvers)
@@ -137,7 +137,7 @@
   travel: Simons
   info: Optimization in 1D
   hw:
-    - text: P2 check-in
+    - info: P2 check-in
 #
 # ==================
 # Week 10 (nonlinear eq and optimization)
@@ -152,7 +152,7 @@
   date: 2023-03-31
   info: Gradient descent and Newton for optimization
   hw:
-    - text: P2 due
+    - info: P2 due
 #
 # ==================
 # Break
@@ -180,7 +180,7 @@
   date: 2023-04-14
   info: Quasi-Newton and other iterations
   hw:
-    - text: HW5 due
+    - info: HW5 due
 #
 # ==================
 # Week 12 (iterations and globalization)
@@ -195,7 +195,7 @@
   date: 2023-04-21
   info: Homotopy and continuation
   hw:
-    - text: P3 check-in
+    - info: P3 check-in
 #
 # ==================
 # Week 14 (globalization and constraints)
@@ -210,7 +210,7 @@
   date: 2023-04-28
   info: Methods for inequality constraints
   hw:
-    - text: P3 due
+    - info: P3 due
 #
 # ==================
 # Week 15 (topics)
@@ -225,7 +225,7 @@
   date: 2023-05-05
   info: Review
   hw:
-    - text: HW 6 due
+    - info: HW 6 due
 #
 # ==================
 # Week 16 (wrap-up)
@@ -234,4 +234,4 @@
   date: 2023-05-08
   info: Review
   hw:
-    - text: Proj due (5223)
+    - info: Proj due (5223)
