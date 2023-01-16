@@ -1,0 +1,237 @@
+# ==================
+# Week 1 (intro)
+#
+-
+  date: 2023-01-23
+  info: Introduction
+-
+  date: 2023-01-25
+  info: Matrix manipulations
+-
+  date: 2023-01-27
+  info: Vector spaces, norms, singular values
+#
+# ==================
+# Week 2 (background)
+#
+-
+  date: 2023-01-30
+  info: Matrices, norms, sensitivity and conditioning
+-
+  date: 2023-02-01
+  info: Matrices, norms, sensitivity and conditioning
+-
+  date: 2023-02-03
+  break: Floating point
+  hw:
+    - HW1 due
+#
+# ==================
+# Week 3 (linear solves)
+#
+-
+  date: 2023-02-06
+  info: Floating point
+-
+  date: 2023-02-08
+  info: Gaussian elimination and Cholesky
+-
+  date: 2023-02-10
+  info: Pivoting and blocking
+  hw:
+    - HW2 due
+#
+# ==================
+# Week 4 (structured solves)
+#
+-
+  date: 2023-02-13
+  info: Conditioning, error estimation, and refinement of linear systems
+-
+  date: 2023-02-15
+  info: Sparse, banded, and structured solves
+-
+  date: 2023-02-17
+  info: Other structured systems
+  hw:
+    - P1 check-in
+#
+# ==================
+# Week 5 (least squares)
+#
+-
+  date: 2023-02-20
+  info: Intro to least squares
+-
+  date: 2023-02-22
+  info: Least squares and QR
+-
+  date: 2023-02-24
+  info: Ill-posedness and regularization
+  hw:
+    - P1 due
+#
+# ==================
+# Week 6 (least squares + eigen background)
+#
+-
+  date: 2023-02-27
+  break: February break
+-
+  date: 2023-03-01
+  info: Ill-posedness and regularization
+  travel: SIAM CSE
+-
+  date: 2023-03-03
+  info: Applications of eigenvalue problems
+  travel: SIAM CSE
+  hw:
+    - HW3 due
+#
+# ==================
+# Week 7 (eigenvalue methods)
+#
+-
+  date: 2023-03-06
+  info: Power iteration
+  hw:
+    - Proj proposal (5223)
+-
+  date: 2023-03-08
+  info: From power methods to QR iteration
+-
+  date: 2023-03-10
+  info: Hessenberg, tridiagonal, and bidiagonal
+  hw:
+    - MT due
+#
+# ==================
+# Week 8 (nonlinear solvers in 1D)
+#
+-
+  date: 2023-03-13
+  info: Stationary iterations
+-
+  date: 2023-03-15
+  info: Gauss-Seidel convergence, extrapolation
+-
+  date: 2023-03-17
+  info: Krylov subspace iterations
+  hw:
+    - HW4 due
+#
+# ==================
+# Week 9 (linear iterative solvers)
+# Weds is drop deadline
+#
+-
+  date: 2023-03-20
+  travel: Simons
+  info: Nonlinear equations in 1D
+-
+  date: 2023-03-22
+  travel: Simons
+  info: Nonlinear equations in 1D
+-
+  date: 2023-03-24
+  travel: Simons
+  info: Optimization in 1D
+  hw:
+    - P2 check-in
+#
+# ==================
+# Week 10 (nonlinear eq and optimization)
+#
+-
+  date: 2023-03-27
+  info: Nonlinear equations and optimization
+-
+  date: 2023-03-29
+  info: Newton in many dimensions
+-
+  date: 2023-03-31
+  info: Gradient descent and Newton for optimization
+  hw:
+    - P2 due
+#
+# ==================
+# Break
+#
+-
+  date: 2023-04-03
+  break: Spring break
+-
+  date: 2023-04-05
+  break: Spring break
+-
+  date: 2023-04-07
+  break: Spring break
+#
+# ==================
+# Week 11 (iterations and globalization)
+#
+-
+  date: 2023-04-10
+  info: Gauss-Newton and nonlinear least squares
+-
+  date: 2023-04-12
+  info: Modified Newton iterations
+-
+  date: 2023-04-14
+  info: Quasi-Newton and other iterations
+  hw:
+    - HW5 due
+#
+# ==================
+# Week 12 (iterations and globalization)
+#
+-
+  date: 2023-04-17
+  info: Line search and globalization
+-
+  date: 2023-04-19
+  info: Trust regions
+-
+  date: 2023-04-21
+  info: Homotopy and continuation
+  hw:
+    - P3 check-in
+#
+# ==================
+# Week 14 (globalization and constraints)
+#
+-
+  date: 2023-04-24
+  info: Constraints and multipliers
+-
+  date: 2023-04-26
+  info: Methods for equality constraints
+-
+  date: 2023-04-28
+  info: Methods for inequality constraints
+  hw:
+    - P3 due
+#
+# ==================
+# Week 15 (topics)
+#
+-
+  date: 2023-05-01
+  info: Derivative free methods
+-
+  date: 2023-05-03
+  info: Stochastic optimizers
+-
+  date: 2023-05-05
+  info: Review
+  hw:
+    - HW 6 due
+#
+# ==================
+# Week 16 (wrap-up)
+#
+-
+  date: 2023-05-08
+  info: Review
+  hw:
+    - Proj due (5223)

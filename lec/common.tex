@@ -1,0 +1,15 @@
+\usepackage{fancyhdr}
+\usepackage[letterpaper=true,colorlinks=true,linkcolor=black]{hyperref}
+
+\input{commonm}
+
+\newcommand{\hdr}[1]{
+  \pagestyle{fancy}
+  \lhead{Bindel, Spring 2023}
+  \rhead{Numerical Analysis}
+  \fancyfoot{}
+  \begin{center}
+    {\large{\bf #1}}
+  \end{center}
+  \lstset{language=Julia,columns=flexible}  
+}

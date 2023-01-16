@@ -1,0 +1,8 @@
+<p class="hanging-indent">
+  <strong>Due {{ entry.due }}:</strong>
+  {% if entry.pluto %}<a href="hw/{{ entry.pluto }}.jl.html">{{ entry.text }}</a>{% else %}{{ entry.text }}{% endif %}
+  {% if entry.pluto %}[<a href="hw/{{ entry.pluto }}.jl">{{ entry.pluto }}.jl</a>]{% endif %}
+  {% for file in entry.files %}
+  [<a href="hw/{{ file }}">{{ file }}</a>]
+  {% endfor %}
+</p>
