@@ -16,8 +16,20 @@ Lecture location: Gates G01
 Prof: [David Bindel](http://www.cs.cornell.edu/~bindel)  
 425 Gates Hall  
 Phone: 607-255-5395  
-E-mail: bindel@cornell.edu  
+Email: bindel@cornell.edu  
 OH: TBA (or [by appointment](https://outlook.office365.com/owa/calendar/BindelOH@cornellprod.onmicrosoft.com/bookings/))
+
+TA: Eric Chen  
+Email: emc348@cornell.edu  
+OH: TBA
+
+TA: Kangbo Li  
+Email: kl935@cornell.edu  
+OH: TBA
+
+TA: Abhay Singh  
+Email: as2626@cornell.edu  
+OH: TBA
 
 ### Catalog description
 
