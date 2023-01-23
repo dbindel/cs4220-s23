@@ -17,7 +17,7 @@ Prof: [David Bindel](http://www.cs.cornell.edu/~bindel)
 425 Gates Hall  
 Phone: 607-255-5395  
 Email: bindel@cornell.edu  
-OH: TBA (or [by appointment](https://outlook.office365.com/owa/calendar/BindelOH@cornellprod.onmicrosoft.com/bookings/))
+OH: Tue-Thu 2-3 (or [by appointment](https://outlook.office365.com/owa/calendar/BindelOH@cornellprod.onmicrosoft.com/bookings/))
 
 TA: Eric Chen  
 Email: emc348@cornell.edu  
