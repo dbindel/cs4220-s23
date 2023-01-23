@@ -35,7 +35,7 @@
   info: Matrices, norms, sensitivity and conditioning
 -
   date: 2023-02-03
-  break: Floating point
+  info: Floating point
   hw:
     - info: HW1 due
 #
