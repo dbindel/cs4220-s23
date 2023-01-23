@@ -4,12 +4,25 @@
 -
   date: 2023-01-23
   info: Introduction
+  notes: 2023-01-23.pdf
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2023-01-23.jl
+    - info: NB (HTML)
+      url: lec/2023-01-23.html
 -
   date: 2023-01-25
   info: Matrix manipulations
+  notes: 2023-01-25.pdf
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2023-01-25.jl
+    - info: NB (HTML)
+      url: lec/2023-01-25.jl.html
 -
   date: 2023-01-27
   info: Vector spaces, norms, singular values
+  notes: 2023-01-27.pdf
 #
 # ==================
 # Week 2 (background)
