@@ -1,11 +1,14 @@
 TEXINPUTS:=.
 
-HW=
+CLASS_HW=\
+	pdf/2023-01-25-class.pdf
+
+HW=$(CLASS_HW)
 
 .PHONY: all copy
 all: $(LEC)
 
-pdf/%.pdf: notes/%.tex
+pdf/%.pdf: tex/%.tex
 	xelatex -output-dir pdf $<
 	xelatex -output-dir pdf $<
 
@@ -19,4 +22,4 @@ distclean: clean
 
 copy:
 	mkdir -p ../web/hw
-	#cp $(HW) ../web/hw
+	cp $(HW) ../web/hw
