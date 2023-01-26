@@ -6,7 +6,7 @@ CLASS_HW=\
 HW=$(CLASS_HW)
 
 .PHONY: all copy
-all: $(LEC)
+all: $(HW)
 
 pdf/%.pdf: tex/%.tex
 	xelatex -output-dir pdf $<
