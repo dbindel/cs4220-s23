@@ -21,7 +21,7 @@ OH: Tue-Thu 2-3 (or [by appointment](https://outlook.office365.com/owa/calendar/
 
 TA: Eric Chen  
 Email: emc348@cornell.edu  
-OH: Fri 3-4, location TBA
+OH: Fri 3:30-4:30, Rhodes 402
 
 TA: Kangbo Li  
 Email: kl935@cornell.edu  
@@ -29,7 +29,7 @@ OH: Mon 4-5, location TBA
 
 TA: Abhay Singh  
 Email: as2626@cornell.edu  
-OH: Fri 2-3, location TBA
+OH: Fri 2:30-3:30, Rhodes 402
 
 ### Catalog description
 
