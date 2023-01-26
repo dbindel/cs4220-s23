@@ -25,7 +25,7 @@ OH: Fri 3:30-4:30, Rhodes 402
 
 TA: Kangbo Li  
 Email: kl935@cornell.edu  
-OH: Mon 4-5, location TBA
+OH: Mon 4-5, location Rhodes 402
 
 TA: Abhay Singh  
 Email: as2626@cornell.edu  

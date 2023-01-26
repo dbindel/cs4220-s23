@@ -26,6 +26,9 @@
   date: 2023-01-27
   info: Vector spaces, norms, singular values
   notes: 2023-01-27.pdf
+  hw:
+    - info: Class problem
+      file: 2023-01-27-class.pdf
 #
 # ==================
 # Week 2 (background)

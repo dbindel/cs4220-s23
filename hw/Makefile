@@ -1,7 +1,8 @@
 TEXINPUTS:=.
 
 CLASS_HW=\
-	pdf/2023-01-25-class.pdf
+	pdf/2023-01-25-class.pdf \
+	pdf/2023-01-27-class.pdf
 
 HW=$(CLASS_HW)
 
