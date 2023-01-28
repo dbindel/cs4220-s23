@@ -4,7 +4,10 @@ LEC= \
 	pdf/background.pdf \
 	pdf/2023-01-23.pdf \
 	pdf/2023-01-25.pdf \
-	pdf/2023-01-27.pdf 
+	pdf/2023-01-27.pdf \
+	pdf/2023-01-30.pdf \
+	pdf/2023-02-01.pdf \
+	pdf/2023-02-03.pdf
 
 PLUTO= \
 	pluto/2023-01-23.jl \
