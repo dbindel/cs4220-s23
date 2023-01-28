@@ -44,6 +44,7 @@
   info: Floating point
   hw:
     - info: HW1 due
+      file: hw1.html
 #
 # ==================
 # Week 3 (linear solves)
