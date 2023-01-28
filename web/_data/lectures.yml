@@ -37,15 +37,23 @@
   date: 2023-01-30
   info: Matrices, norms, canonical forms
   notes: 2023-01-30.pdf
+  hw:
+    - info: Class problem
+      file: 2023-01-30-class.pdf
 -
   date: 2023-02-01
   info: Neumann series, sensitivity, conditioning
   notes: 2023-02-01.pdf
+  hw:
+    - info: Class problem
+      file: 2023-02-01-class.pdf
 -
   date: 2023-02-03
   info: Floating point
   notes: 2023-02-03.pdf
   hw:
+    - info: Class problem
+      file: 2023-02-03-class.pdf
     - info: HW1 due
       file: hw1.html
   ulinks:

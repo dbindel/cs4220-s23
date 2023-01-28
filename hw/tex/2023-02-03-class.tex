@@ -1,0 +1,13 @@
+\documentclass[12pt, leqno]{article}
+\input{common}
+
+\begin{document}
+\hdr{2023-02-03}
+
+Suppose $|z| < \macheps$, and we want to compute $x = 1-\sqrt{1-z}$.
+What is the relative error between the true value of $x$ and the floating point approximation $\hat{x}$ computed by
+\begin{lstlisting}
+  x = 1.0 - sqrt(1.0-z)
+\end{lstlisting}
+
+\end{document}

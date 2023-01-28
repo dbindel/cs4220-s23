@@ -2,7 +2,10 @@ TEXINPUTS:=.
 
 CLASS_HW=\
 	pdf/2023-01-25-class.pdf \
-	pdf/2023-01-27-class.pdf
+	pdf/2023-01-27-class.pdf \
+	pdf/2023-01-30-class.pdf \
+	pdf/2023-02-01-class.pdf \
+	pdf/2023-02-03-class.pdf 
 
 HW=$(CLASS_HW) \
 	pluto/hw1.jl html/hw1.html
