@@ -35,16 +35,24 @@
 #
 -
   date: 2023-01-30
-  info: Matrices, norms, sensitivity and conditioning
+  info: Matrices, norms, canonical forms
+  notes: 2023-01-30.pdf
 -
   date: 2023-02-01
-  info: Matrices, norms, sensitivity and conditioning
+  info: Neumann series, sensitivity, conditioning
+  notes: 2023-02-01.pdf
 -
   date: 2023-02-03
   info: Floating point
+  notes: 2023-02-03.pdf
   hw:
     - info: HW1 due
       file: hw1.html
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2023-01-25.jl
+    - info: NB (HTML)
+      url: lec/2023-01-25.html
 #
 # ==================
 # Week 3 (linear solves)
