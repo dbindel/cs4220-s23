@@ -11,11 +11,13 @@ LEC= \
 
 PLUTO= \
 	pluto/2023-01-23.jl \
-	pluto/2023-01-25.jl 
+	pluto/2023-01-25.jl \
+	pluto/2023-02-03.jl 
 
 HTML= \
 	html/2023-01-23.html \
-	html/2023-01-25.html 
+	html/2023-01-25.html \
+	html/2023-02-03.html 
 
 .PHONY: all copy fragments
 all: $(LEC) $(HTML)
