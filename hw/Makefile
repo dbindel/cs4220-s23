@@ -8,7 +8,8 @@ CLASS_HW=\
 	pdf/2023-02-03-class.pdf 
 
 HW=$(CLASS_HW) \
-	pluto/hw1.jl html/hw1.html
+	pluto/hw1.jl html/hw1.html \
+	pluto/hw2.jl html/hw2.html
 
 .PHONY: all copy
 all: $(HW)
