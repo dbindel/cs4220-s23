@@ -76,6 +76,7 @@
   info: Pivoting and blocking
   hw:
     - info: HW2 due
+      file: hw2.html
 #
 # ==================
 # Week 4 (structured solves)
