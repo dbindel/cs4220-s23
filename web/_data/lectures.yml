@@ -58,9 +58,9 @@
       file: hw1.html
   ulinks:
     - info: NB (Julia)
-      url: lec/2023-01-25.jl
+      url: lec/2023-02-03.jl
     - info: NB (HTML)
-      url: lec/2023-01-25.html
+      url: lec/2023-02-03.html
 #
 # ==================
 # Week 3 (linear solves)
@@ -69,17 +69,40 @@
   date: 2023-02-06
   info: Floating point
   notes: 2023-02-03.pdf
+  hw:
+    - info: Class problem
+      file: 2023-02-06-class.pdf
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2023-02-03.jl
+    - info: NB (HTML)
+      url: lec/2023-02-03.html
 -
   date: 2023-02-08
   info: Gaussian elimination and Cholesky
   notes: 2023-02-08.pdf
+  hw:
+    - info: Class problem
+      file: 2023-02-08-class.pdf
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2023-02-08.jl
+    - info: NB (HTML)
+      url: lec/2023-02-08.html
 -
   date: 2023-02-10
   info: Pivoting and blocking
   notes: 2023-02-10.pdf
   hw:
+    - info: Class problem
+      file: 2023-02-10-class.pdf
     - info: HW2 due
       file: hw2.html
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2023-02-10.jl
+    - info: NB (HTML)
+      url: lec/2023-02-10.html
 #
 # ==================
 # Week 4 (structured solves)
