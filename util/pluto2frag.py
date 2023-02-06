@@ -20,7 +20,7 @@ def main(fname, prefix):
                 outname = None
                 outlines = []
             if outname is not None:
-                outlines.append(line)
+                outlines.append(line.replace("\t", "  ")
             if line.startswith("end") and outname is not None:
                 writefrag(outname, prefix, outlines)
                 outname = None

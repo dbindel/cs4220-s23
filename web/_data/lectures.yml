@@ -68,12 +68,15 @@
 -
   date: 2023-02-06
   info: Floating point
+  notes: 2023-02-03.pdf
 -
   date: 2023-02-08
   info: Gaussian elimination and Cholesky
+  notes: 2023-02-08.pdf
 -
   date: 2023-02-10
   info: Pivoting and blocking
+  notes: 2023-02-10.pdf
   hw:
     - info: HW2 due
       file: hw2.html

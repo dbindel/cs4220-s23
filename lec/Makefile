@@ -7,17 +7,23 @@ LEC= \
 	pdf/2023-01-27.pdf \
 	pdf/2023-01-30.pdf \
 	pdf/2023-02-01.pdf \
-	pdf/2023-02-03.pdf
+	pdf/2023-02-03.pdf \
+	pdf/2023-02-08.pdf \
+	pdf/2023-02-10.pdf
 
 PLUTO= \
 	pluto/2023-01-23.jl \
 	pluto/2023-01-25.jl \
-	pluto/2023-02-03.jl 
+	pluto/2023-02-03.jl \
+	pluto/2023-02-08.jl \
+	pluto/2023-02-10.jl 
 
 HTML= \
 	html/2023-01-23.html \
 	html/2023-01-25.html \
-	html/2023-02-03.html 
+	html/2023-02-03.html \
+	html/2023-02-08.html \
+	html/2023-02-10.html 
 
 .PHONY: all copy fragments
 all: $(LEC) $(HTML)
