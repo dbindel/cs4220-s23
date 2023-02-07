@@ -31,8 +31,8 @@ all: $(LEC) $(HTML)
 pdf/%.pdf: notes/%.tex
 	latexmk -xelatex -outdir=pdf $<
 
-html/%.html: pluto/%.jl
-	../util/pluto2html.sh $<
+# html/%.html: pluto/%.jl
+# 	../util/pluto2html.sh $<
 
 clean:
 	rm -f pdf/*.aux pdf/*.log pdf/*.out
