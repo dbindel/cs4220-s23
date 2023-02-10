@@ -17,9 +17,12 @@ HW=$(CLASS_HW) \
 .PHONY: all copy
 all: $(HW)
 
-pdf/%.pdf: tex/%.tex
+pdf/%.pdf: tex/%.tex | pdf
 	xelatex -output-dir pdf $<
 	xelatex -output-dir pdf $<
+
+pdf: 
+	@mkdir -p pdf
 
 clean:
 	rm -f pdf/*.aux pdf/*.log pdf/*.out
