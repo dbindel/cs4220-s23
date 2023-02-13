@@ -118,6 +118,7 @@
   info: Other structured systems
   hw:
     - info: P1 check-in
+      file: proj1.html
 #
 # ==================
 # Week 5 (least squares)
@@ -133,6 +134,7 @@
   info: Ill-posedness and regularization
   hw:
     - info: P1 due
+      file: proj1.html
 #
 # ==================
 # Week 6 (least squares + eigen background)
