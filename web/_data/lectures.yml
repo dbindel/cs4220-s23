@@ -79,7 +79,7 @@
       url: lec/2023-02-03.html
 -
   date: 2023-02-08
-  info: Gaussian elimination and Cholesky
+  info: Gaussian elimination 
   notes: 2023-02-08.pdf
   hw:
     - info: Class problem
@@ -91,7 +91,7 @@
       url: lec/2023-02-08.html
 -
   date: 2023-02-10
-  info: Pivoting and blocking
+  info: Blocking
   notes: 2023-02-10.pdf
   hw:
     - info: Class problem
@@ -109,13 +109,22 @@
 #
 -
   date: 2023-02-13
-  info: Conditioning, error estimation, and refinement of linear systems
+  info: Perturbation theory, refinement, Cholesky, project 1 intro
+  notes: 2023-02-13.pdf
+  hw:
+    - info: Class problem
+      file: 2023-02-13-class.pdf
+  ulinks:
+    - info: P1 (Julia)
+      url: hw/proj1.jl
+    - info: P1 (HTML)
+      url: hw/proj1.html
 -
   date: 2023-02-15
-  info: Sparse, banded, and structured solves
+  info: Pivoting, conditioning, error estimation
 -
   date: 2023-02-17
-  info: Other structured systems
+  info: Sparse, banded, and structured solves
   hw:
     - info: P1 check-in
       file: proj1.html
