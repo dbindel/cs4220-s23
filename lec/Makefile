@@ -35,6 +35,8 @@ pdf/%.pdf: notes/%.tex
 # 	../util/pluto2html.sh $<
 
 clean:
+	rm -f pdf/*.bbl pdf/*.blg pdf/*.fls
+	rm -f pdf/*.fdb_latexmk pdf/*.xdv
 	rm -f pdf/*.aux pdf/*.log pdf/*.out
 	rm -f pdf/*.nav pdf/*.snm pdf/*.toc 
 	rm -f pdf/*.vrb
