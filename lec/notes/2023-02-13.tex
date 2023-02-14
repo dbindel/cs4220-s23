@@ -4,91 +4,6 @@
 \begin{document}
 \hdr{2023-02-13}
 
-\section{Perturbation theory}
-
-Previously, we described a general error analysis strategy: derive
-forward error bounds by combining a sensitivity estimate (in terms of
-a {\em condition number}) with a {\em backward} error analysis that
-explains the computed result as the exact answer to a slightly
-erroneous problem.  To follow that strategy here, we need the
-sensitivity analysis of solving linear systems.
-
-Suppose that $Ax = b$ and that $\hat{A} \hat{x} = \hat{b}$,
-where $\hat{A} = A + \delta A$, $\hat{b} = b + \delta b$,
-and $\hat{x} = x + \delta x$.  Then
-\[
-  \delta A \, x + A \, \delta x + \delta A \, \delta x = \delta b.
-\]
-Assuming the delta terms are small, we have the linear approximation
-\[
-  \delta A \, x + A \, \delta x \approx \delta b.
-\]
-We can use this to get $\delta x$ alone:
-\[
-  \delta x \approx A^{-1} (\delta b - \delta A \, x);
-\]
-and taking norms gives us
-\[
-  \|\delta x\| \lesssim \|A^{-1}\| (\|\delta b\| + \|\delta A\| \|x\|).
-\]
-Now, divide through by $\|x\|$ to get the relative error in $x$:
-\[
-  \frac{\|\delta x\|}{\|x\|} \lesssim \|A\| \|A^{-1}\|
-    \left( \frac{\|\delta A\|}{\|A\|} + \frac{\|\delta b\|}{\|A\|\|x\|} \right).
-\]
-Recall that $\|b\| \leq \|A\|\|x\|$ to arrive at
-\[
-  \frac{\|\delta x\|}{\|x\|} \lesssim \kappa(A)
-    \left( \frac{\|\delta A\|}{\|A\|} + \frac{\|\delta b\|}{\|b\|} \right),
-\]
-where $\kappa(A) = \|A\| \|A^{-1}\|$.  That is, the relative error in
-$x$ is (to first order) bounded by the condition number times the relative
-errors in $A$ and $b$.  We can go beyond first order using Neumann
-series bounds -- but perhaps not today.
-
-\section{Residual good!}
-
-The analysis in the previous section is pessimistic in that it gives us
-the worst-case error in $\delta x$ for {\em any} $\delta A$ and $\delta b$.
-But what if we are given data that behaves better than the worst case?
-
-If we know $A$ and $b$, a reasonable way to evaluate an approximate
-solution $\hat{x}$ is through the residual $r = b-A\hat{x}$.  The
-approximate solution satisfies
-\[
-  A \hat{x} = b + r,
-\]
-so if we subtract of $Ax = b$, we have
-\[
-  \hat{x}-x = A^{-1} r.
-\]
-We can use this to get the error estimate
-\[
-  \|\hat{x}-x\| = \|A^{-1}\| \|r\|;
-\]
-but for a given $\hat{x}$, we also actually have a prayer of {\em evaluating}
-$\delta x = A^{-1} r$ with at least some accuracy.
-%
-It's worth pausing to think how novel this situation is.
-Generally, we can only {\em bound} error terms.
-If I tell you ``my answer is off by just about 2.5,''
-you'll look at me much more sceptically than if I tell
-you ``my answer is off by no more than 2.5,'' and reasonably so.
-After all, if I knew that my answer was off by nearly 2.5, why wouldn't
-I add 2.5 to my original answer in order to get something closer to truth?
-This is exactly the idea behind {\em iterative refinement}:
-\begin{enumerate}
-\item
-  Get an approximate solution $A \hat{x}_1 \approx b$.
-\item
-  Compute the residual $r = b-A\hat{x}_1$ (to good accuracy).
-\item
-  Approximately solve $A \, \delta x_1 \approx r$.
-\item
-  Get a new approximate solution $\hat{x}_2 = \hat{x}_1+\delta x_1$;
-  repeat as needed.
-\end{enumerate}
-
 \section{Cholesky}
 
 So far, we have focused on the LU factorization for general
@@ -160,6 +75,45 @@ into trouble if we ever encountered a zero or negative diagonal
 element; but the fact that the Schur complements remain SPD, together
 with the fact that the diagonals of an SPD matrix are all positive,
 suffices to guarantee this will never happen.
+
+\section{Iterative refinement}
+
+If we know $A$ and $b$, a reasonable way to evaluate an approximate
+solution $\hat{x}$ is through the residual $r = b-A\hat{x}$.  The
+approximate solution satisfies
+\[
+  A \hat{x} = b + r,
+\]
+so if we subtract of $Ax = b$, we have
+\[
+  \hat{x}-x = A^{-1} r.
+\]
+We can use this to get the error estimate
+\[
+  \|\hat{x}-x\| = \|A^{-1}\| \|r\|;
+\]
+but for a given $\hat{x}$, we also actually have a prayer of {\em evaluating}
+$\delta x = A^{-1} r$ with at least some accuracy.
+%
+It's worth pausing to think how novel this situation is.
+Generally, we can only {\em bound} error terms.
+If I tell you ``my answer is off by just about 2.5,''
+you'll look at me much more sceptically than if I tell
+you ``my answer is off by no more than 2.5,'' and reasonably so.
+After all, if I knew that my answer was off by nearly 2.5, why wouldn't
+I add 2.5 to my original answer in order to get something closer to truth?
+This is exactly the idea behind {\em iterative refinement}:
+\begin{enumerate}
+\item
+  Get an approximate solution $A \hat{x}_1 \approx b$.
+\item
+  Compute the residual $r = b-A\hat{x}_1$ (to good accuracy).
+\item
+  Approximately solve $A \, \delta x_1 \approx r$.
+\item
+  Get a new approximate solution $\hat{x}_2 = \hat{x}_1+\delta x_1$;
+  repeat as needed.
+\end{enumerate}
 
 \section{Multiple right hand sides}
 
