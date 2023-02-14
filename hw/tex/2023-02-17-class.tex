@@ -1,0 +1,20 @@
+\documentclass[12pt, leqno]{article}
+\input{common}
+
+\begin{document}
+\hdr{2023-02-17}
+
+Suppose $T$ is a symmetric tridiagonal matrix
+\[
+  T = \begin{bmatrix}
+        \alpha_1 & \beta_1 \\
+        \beta_1 & \alpha_2 & \beta_2 \\
+                & \beta_2 & \alpha_3 & \beta_3 \\
+                &         &  \ddots & \ddots & \ddots \\
+                &         &         & \beta_{n-2} & \alpha_{n-1} & \beta_{n-1} \\
+               &        &      &     & \beta_{n-1} & \alpha_n
+      \end{bmatrix}
+\]
+How would we overwrite the vector $a$ of diagonal entries of $T$ and the vector $b$ of off-diagonal entries with the diagonal and off-diagonal entries of the Cholesky factor of $T$?
+
+\end{document}

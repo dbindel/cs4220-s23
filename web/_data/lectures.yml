@@ -122,10 +122,17 @@
 -
   date: 2023-02-15
   info: Pivoting, conditioning, error estimation
+  notes: 2023-02-15.pdf
+  hw:
+    - info: Class problem
+      file: 2023-02-15-class.pdf
 -
   date: 2023-02-17
   info: Sparse, banded, and structured solves
+  notes: 2023-02-17.pdf
   hw:
+    - info: Class problem
+      file: 2023-02-17-class.pdf
     - info: P1 check-in
       file: proj1.html
 #
