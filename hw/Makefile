@@ -11,7 +11,10 @@ CLASS_HW=\
 	pdf/2023-02-10-class.pdf \
 	pdf/2023-02-13-class.pdf \
 	pdf/2023-02-15-class.pdf \
-	pdf/2023-02-17-class.pdf 
+	pdf/2023-02-17-class.pdf \
+	pdf/2023-02-20-class.pdf \
+	pdf/2023-02-22-class.pdf \
+	pdf/2023-02-23-class.pdf 
 
 HW=$(CLASS_HW) \
 	pluto/hw1.jl html/hw1.html \
