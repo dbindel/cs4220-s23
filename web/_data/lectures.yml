@@ -185,8 +185,6 @@
   hw:
     - info: Class problem
       file: 2023-03-03-class.pdf
-    - info: HW3 due
-      file: hw3.html
 #
 # ==================
 # Week 7 (eigenvalue methods)
@@ -196,14 +194,14 @@
   info: Power iteration
   hw:
     - info: Proj proposal (5223)
+    - info: HW3 due (no slip)
+      file: hw3.html
 -
   date: 2023-03-08
   info: From power methods to QR iteration
 -
   date: 2023-03-10
   info: Hessenberg, tridiagonal, and bidiagonal
-  hw:
-    - info: MT due
 #
 # ==================
 # Week 8 (nonlinear solvers in 1D)
@@ -211,6 +209,8 @@
 -
   date: 2023-03-13
   info: Stationary iterations
+  hw:
+    - info: MT due
 -
   date: 2023-03-15
   info: Gauss-Seidel convergence, extrapolation
