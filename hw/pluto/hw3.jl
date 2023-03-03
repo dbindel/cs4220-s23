@@ -91,7 +91,7 @@ end
 md"""
 As an example, consider the case where $y_i = 1.0 + \eta_i$, where $\eta_i$ are independent noise terms with mean zero and standard deviation of $\sigma$ (which we will set to $10^{-4}$).  Ideally, we should have $p$ evaluate to the same thing with both fitting processes (they represent the same polynomial, up to roundoff effects), and that thing should be close to 1.
 
-Note that if $p(x) = \sum_{j=0}^d w_j c$, $w_j = T_j(x)$, then for our example we expect $p(x)-1 = w^T B^\dagger \eta$ to be a normal random variable with mean zero and standard deviation $\|w^T B^\dagger\|$.  We can write this in Julia as `w' / B`.
+Note that if $p(x) = \sum_{j=0}^d w_j c$, $w_j = T_j(x)$, then for our example we expect $p(x)-1 = w^T B^\dagger \eta$ to be a normal random variable with mean zero and standard deviation $\|w^T B^\dagger\| \sigma$.  We can write this in Julia as `w' / B`.
 """
 
 # ╔═╡ 1dc06a24-8d97-4ec7-b477-74961f134b8f
