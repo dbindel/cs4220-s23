@@ -1,0 +1,20 @@
+\documentclass[12pt, leqno]{article}
+\input{common}
+
+\begin{document}
+\hdr{2023-03-06}
+
+Suppose $A \in \bbR^{n \times n}$ is symmetric, with eigenvalue decomposition 
+$Q \Lambda Q^T$ where the eigenvalues are sorted in descending order of magnitude
+and $|\lambda_1| > |\lambda_2|$.  If we write the eigenvector basis as
+$Q = \begin{bmatrix} q_1 & Q_2 \end{bmatrix}$,
+The cosine and sine of the acute angle between
+$q_1$ and a unit vector $v$ are $\cos \angle(q_1,v) = |q_1^T v|$ and 
+$\sin \angle(q_1,v) = \sqrt{1-|q_1^T v|^2} = \|Q_2^T v\|$.
+Using these definitions, argue that when $v_k$ is the $k$th step of power
+iteration,
+\[
+  \tan \angle(q_1,v_k) \leq |\lambda_2/\lambda_1|^k \tan \angle(q_1, v_0).
+\]
+
+\end{document}

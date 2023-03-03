@@ -194,6 +194,8 @@
   info: Power iteration
   notes: 2023-03-06.pdf
   hw:
+    - info: Class problem
+      file: 2023-03-06-class.pdf
     - info: Proj proposal (5223)
       file: proj-5223.pdf
     - info: HW3 due (no slip)
@@ -202,10 +204,16 @@
   date: 2023-03-08
   info: From power methods to QR iteration
   notes: 2023-03-08.pdf
+  hw:
+    - info: Class problem
+      file: 2023-03-08-class.pdf
 -
   date: 2023-03-10
   info: Hessenberg, tridiagonal, and bidiagonal
   notes: 2023-03-08.pdf
+  hw:
+    - info: Class problem
+      file: 2023-03-10-class.pdf
 #
 # ==================
 # Week 8 (nonlinear solvers in 1D)
