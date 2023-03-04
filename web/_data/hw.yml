@@ -14,15 +14,15 @@
   text: HW 3
   due: 2023-03-06
   pluto: hw3
-#-
-#  text: Term proj idea
-#  due: 2023-03-07
-#  files:
-#    - proj_idea.html
-#-
-#  text: Midterm
-#  due: 2023-03-14
-#  pluto: mt
+-
+  text: Term proj idea
+  due: 2023-03-06
+  files:
+    - proj-5223.pdf
+-
+  text: Midterm
+  due: 2023-03-13
+  pluto: midterm
 #-
 #  text: Proj 2
 #  due: 2023-03-25

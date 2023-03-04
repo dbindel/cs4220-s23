@@ -222,7 +222,8 @@
   date: 2023-03-13
   info: Stationary iterations
   hw:
-    - info: MT due
+    - info: MT due (no slip)
+      file: midterm.html
 -
   date: 2023-03-15
   info: Gauss-Seidel convergence, extrapolation
