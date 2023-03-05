@@ -25,7 +25,8 @@ Rewrite each of the following codes to have the desired complexity.
 begin
 	p1a_ref(A, b) = A^3 * b  # Make O(n^2)
 
-	# Solve c' inv(A) B where A is n-by-n, B is n-by-k, and c is a length n vector
+	# Solve c' inv(A) B where A is an n-by-n matrix already factored,
+	# B is n-by-k, and c is a length n vector
 	p1b_ref(c, A, B) = c' * (A \ B)  # Make O(n^2 + nk)
 
 	# Compute ek' * A * b - rewrite to be O(n)
