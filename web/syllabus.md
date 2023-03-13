@@ -189,7 +189,7 @@ Your final grade in CS 4220 will be computed from grades on the
 assignments and exams using the following weights:
 
  - Class work: 10%
- - Homework: 6% times 5 homeworks (best of 6)
+ - Homework: 7.5% times 4 homeworks (best of 6)
  - Projects: 10% times 3 projects
  - Midterm: 15%
  - Final: 15%
