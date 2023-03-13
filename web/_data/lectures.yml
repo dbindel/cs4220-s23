@@ -232,6 +232,7 @@
   info: Krylov subspace iterations
   hw:
     - info: HW4 due
+      file: hw4.html
 #
 # ==================
 # Week 9 (linear iterative solvers)
