@@ -225,7 +225,7 @@
   hw:
     - info: Class problem
       file: 2023-03-13-class.pdf
-    - info: MT due (no slip)
+    - info: MT due 
       file: midterm.html
 -
   date: 2023-03-15
@@ -241,8 +241,6 @@
   hw:
     - info: Class problem
       file: 2023-03-17-class.pdf
-    - info: HW4 due
-      file: hw4.html
 #
 # ==================
 # Week 9 (linear iterative solvers)
@@ -252,6 +250,9 @@
   date: 2023-03-20
   travel: Simons
   info: Nonlinear equations in 1D
+  hw:
+    - info: HW4 due
+      file: hw4.html
 -
   date: 2023-03-22
   travel: Simons
