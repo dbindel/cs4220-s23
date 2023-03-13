@@ -221,15 +221,18 @@
 -
   date: 2023-03-13
   info: Stationary iterations
+  notes: 2023-03-13.pdf
   hw:
     - info: MT due (no slip)
       file: midterm.html
 -
   date: 2023-03-15
   info: Gauss-Seidel convergence, extrapolation
+  notes: 2023-03-15.pdf
 -
   date: 2023-03-17
   info: Krylov subspace iterations
+  notes: 2023-03-17.pdf
   hw:
     - info: HW4 due
       file: hw4.html
