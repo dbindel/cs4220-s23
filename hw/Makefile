@@ -27,7 +27,8 @@ HW=$(CLASS_HW) \
 	pluto/hw2.jl html/hw2.html \
 	pluto/proj1.jl html/proj1.html \
 	pluto/hw3.jl html/hw3.html \
-	pluto/midterm.jl html/midterm.html 
+	pluto/midterm.jl html/midterm.html \
+	pluto/hw4.jl html/hw4.html 
 
 .PHONY: all copy
 all: $(HW)
