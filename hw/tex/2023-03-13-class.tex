@@ -1,0 +1,19 @@
+\documentclass[12pt, leqno]{article}
+\input{common}
+
+\begin{document}
+\hdr{2023-03-13}
+
+Suppose $A = M-N$ is a splitting and consider the stationary
+iteration $M x_{k+1} = N x_k + b$.  Show that if $x_0 = 0$ then
+\[
+  x_k = \sum_{j=0}^k R^j M^{-1} b 
+\]
+where $R = M^{-1} N$.  Note: we can compute the partial sum in closed form
+as
+\[
+  x_k = (I-R)^{-1} (I-R^{k+1}) M^{-1} b
+\]
+if $I-R$ is invertible -- but you don't need to prove this.
+
+\end{document}
