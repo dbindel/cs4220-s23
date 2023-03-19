@@ -253,6 +253,11 @@
   hw:
     - info: HW4 due
       file: hw4.html
+  ulinks:
+    - info: P2 (Julia)
+      url: hw/proj2.jl
+    - info: P2 (HTML)
+      url: hw/proj2.html
 -
   date: 2023-03-22
   travel: Simons
@@ -263,6 +268,7 @@
   info: Optimization in 1D
   hw:
     - info: P2 check-in
+      url: hw/proj2.html
 #
 # ==================
 # Week 10 (nonlinear eq and optimization)
@@ -278,6 +284,7 @@
   info: Gradient descent and Newton for optimization
   hw:
     - info: P2 due
+      url: hw/proj2.html
 #
 # ==================
 # Break
