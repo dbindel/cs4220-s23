@@ -252,6 +252,8 @@
   info: Nonlinear equations in 1D
   notes: 2023-03-20.pdf
   hw:
+    - info: Class problem
+      file: 2023-03-20-class.pdf
     - info: HW4 due
       file: hw4.html
   ulinks:
@@ -264,12 +266,17 @@
   travel: Simons
   info: Nonlinear equations in 1D
   notes: 2023-03-22.pdf
+  hw:
+    - info: Class problem
+      file: 2023-03-22-class.pdf
 -
   date: 2023-03-24
   travel: Simons
   info: Optimization in 1D
   notes: 2023-03-24.pdf
   hw:
+    - info: Class problem
+      file: 2023-03-24-class.pdf
     - info: P2 check-in
       url: hw/proj2.html
 #
