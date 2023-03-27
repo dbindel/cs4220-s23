@@ -34,13 +34,41 @@ PLUTO= \
 	pluto/2023-02-03.jl \
 	pluto/2023-02-08.jl \
 	pluto/2023-02-10.jl 
+	pluto/2023-02-13.jl \
+	pluto/2023-02-20.jl \
+	pluto/2023-02-22.jl \
+	pluto/2023-02-24.jl \
+	pluto/2023-03-06.jl \
+	pluto/2023-03-08.jl \
+	pluto/2023-03-13.jl \
+	pluto/2023-03-15.jl \
+	pluto/2023-03-20.jl \
+	pluto/2023-03-22.jl \
+	pluto/2023-03-24.jl \
+	pluto/2023-03-27.jl \
+	pluto/2023-03-29.jl \
+	pluto/2023-03-31.jl 
 
 HTML= \
 	html/2023-01-23.html \
 	html/2023-01-25.html \
 	html/2023-02-03.html \
 	html/2023-02-08.html \
-	html/2023-02-10.html 
+	html/2023-02-10.html \
+	html/2023-02-13.html \
+	html/2023-02-20.html \
+	html/2023-02-22.html \
+	html/2023-02-24.html \
+	html/2023-03-06.html \
+	html/2023-03-08.html \
+	html/2023-03-13.html \
+	html/2023-03-15.html \
+	html/2023-03-20.html \
+	html/2023-03-22.html \
+	html/2023-03-24.html \
+	html/2023-03-27.html \
+	html/2023-03-29.html \
+	html/2023-03-31.html 
 
 .PHONY: all copy fragments
 all: $(LEC) $(HTML)

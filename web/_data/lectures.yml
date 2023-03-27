@@ -115,6 +115,10 @@
     - info: Class problem
       file: 2023-02-13-class.pdf
   ulinks:
+    - info: NB (Julia)
+      url: lec/2023-02-13.jl
+    - info: NB (HTML)
+      url: lec/2023-02-13.html    
     - info: P1 (Julia)
       url: hw/proj1.jl
     - info: P1 (HTML)
@@ -146,6 +150,11 @@
   hw:
     - info: Class problem
       file: 2023-02-20-class.pdf
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2023-02-20.jl
+    - info: NB (HTML)
+      url: lec/2023-02-20.html
 -
   date: 2023-02-22
   info: Least squares and QR
@@ -153,6 +162,11 @@
   hw:
     - info: Class problem
       file: 2023-02-22-class.pdf
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2023-02-22.jl
+    - info: NB (HTML)
+      url: lec/2023-02-22.html
 -
   date: 2023-02-24
   info: Ill-posedness and regularization
@@ -162,6 +176,11 @@
       file: 2023-02-24-class.pdf
     - info: P1 due
       file: proj1.html
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2023-02-24.jl
+    - info: NB (HTML)
+      url: lec/2023-02-24.html
 #
 # ==================
 # Week 6 (least squares + eigen background)
@@ -200,6 +219,11 @@
       file: proj-5223.pdf
     - info: HW3 due
       file: hw3.html
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2023-03-06.jl
+    - info: NB (HTML)
+      url: lec/2023-03-06.html
 -
   date: 2023-03-08
   info: From power methods to QR iteration
@@ -207,6 +231,11 @@
   hw:
     - info: Class problem
       file: 2023-03-08-class.pdf
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2023-03-08.jl
+    - info: NB (HTML)
+      url: lec/2023-03-08.html
 -
   date: 2023-03-10
   info: Hessenberg, tridiagonal, and bidiagonal
@@ -227,6 +256,11 @@
       file: 2023-03-13-class.pdf
     - info: MT due 
       file: midterm.html
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2023-03-13.jl
+    - info: NB (HTML)
+      url: lec/2023-03-13.html
 -
   date: 2023-03-15
   info: Gauss-Seidel convergence, extrapolation
@@ -257,6 +291,10 @@
     - info: HW4 due
       file: hw4.html
   ulinks:
+    - info: NB (Julia)
+      url: lec/2023-03-20.jl
+    - info: NB (HTML)
+      url: lec/2023-03-20.html
     - info: P2 (Julia)
       url: hw/proj2.jl
     - info: P2 (HTML)
@@ -269,6 +307,11 @@
   hw:
     - info: Class problem
       file: 2023-03-22-class.pdf
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2023-03-22.jl
+    - info: NB (HTML)
+      url: lec/2023-03-22.html
 -
   date: 2023-03-24
   travel: Simons
@@ -279,6 +322,11 @@
       file: 2023-03-24-class.pdf
     - info: P2 check-in
       url: hw/proj2.html
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2023-03-24.jl
+    - info: NB (HTML)
+      url: lec/2023-03-24.html
 #
 # ==================
 # Week 10 (nonlinear eq and optimization)
@@ -287,15 +335,30 @@
   date: 2023-03-27
   info: Nonlinear equations and optimization
   notes: 2023-03-27.pdf
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2023-03-27.jl
+    - info: NB (HTML)
+      url: lec/2023-03-27.html
 -
   date: 2023-03-29
   info: Newton in many dimensions
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2023-03-29.jl
+    - info: NB (HTML)
+      url: lec/2023-03-29.html
 -
   date: 2023-03-31
   info: Gradient descent and Newton for optimization
   hw:
     - info: P2 due
       url: hw/proj2.html
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2023-03-31.jl
+    - info: NB (HTML)
+      url: lec/2023-03-31.html
 #
 # ==================
 # Break
