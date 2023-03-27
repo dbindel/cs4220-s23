@@ -335,6 +335,9 @@
   date: 2023-03-27
   info: Nonlinear equations and optimization
   notes: 2023-03-27.pdf
+  hw:
+    - info: Class problem
+      file: 2023-03-27-class.pdf
   ulinks:
     - info: NB (Julia)
       url: lec/2023-03-27.jl
