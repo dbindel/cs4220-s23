@@ -33,7 +33,7 @@ PLUTO= \
 	pluto/2023-01-25.jl \
 	pluto/2023-02-03.jl \
 	pluto/2023-02-08.jl \
-	pluto/2023-02-10.jl 
+	pluto/2023-02-10.jl \
 	pluto/2023-02-13.jl \
 	pluto/2023-02-20.jl \
 	pluto/2023-02-22.jl \
