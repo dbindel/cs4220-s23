@@ -91,6 +91,12 @@ fragments:
 		../util/pluto2frag.py $$f code/ ; \
 	done
 
+pfigs:
+	cd pluto ; \
+	for f in *-tex.jl ; do \
+		julia $$f ; \
+	done
+
 distclean: clean
 	rm -f pdf/*.pdf
 

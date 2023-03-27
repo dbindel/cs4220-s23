@@ -56,3 +56,24 @@
 \newcommand{\order}[1]{O( #1 )}
 
 \newcommand{\kron}{\otimes}
+
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{backgrounds}
+\usepgfplotslibrary{patchplots}
+\usepgfplotslibrary{fillbetween}
+\pgfplotsset{%
+    layers/standard/.define layer set={%
+        background,axis background,axis grid,axis ticks,axis lines,axis tick labels,pre main,main,axis descriptions,axis foreground%
+    }{
+        grid style={/pgfplots/on layer=axis grid},%
+        tick style={/pgfplots/on layer=axis ticks},%
+        axis line style={/pgfplots/on layer=axis lines},%
+        label style={/pgfplots/on layer=axis descriptions},%
+        legend style={/pgfplots/on layer=axis descriptions},%
+        title style={/pgfplots/on layer=axis descriptions},%
+        colorbar style={/pgfplots/on layer=axis descriptions},%
+        ticklabel style={/pgfplots/on layer=axis tick labels},%
+        axis background@ style={/pgfplots/on layer=axis background},%
+        3d box foreground style={/pgfplots/on layer=axis foreground},%
+    },
+}

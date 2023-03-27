@@ -74,14 +74,16 @@ function test_toy_contraction()
 		push!(resid_norms, norm(x-G(x), Inf))
 	end
 
-	# Return a plot of the residual vs iteration count
-	plot(resid_norms[resid_norms .> 0], 
-		xlabel="k", ylabel="resid", label="Fixed point residual", yscale=:log10)
-
+	x, resid_norms
 end
 
 # ╔═╡ 090659d5-f155-4b67-af45-c823e782ba12
-test_toy_contraction()
+# Plot the residual vs iteration count
+let
+	x, resid_norms = test_toy_contraction()
+	plot(resid_norms[resid_norms .> 0], 
+		xlabel="k", ylabel="resid", label="Fixed point residual", yscale=:log10)
+end
 
 # ╔═╡ 7985ec7e-29b0-4cbb-a7b5-b0d650badfd1
 md"""
@@ -158,7 +160,7 @@ function test_toy_newton(x, y)
 	end
 
 	p = plot(resids[resids .> 0], yscale=:log10, 
-		     ylabel="k", xlabel="f(x_k)", legend=false)
+		     ylabel="\$k\$", xlabel="\$f(x_k)\$", legend=false)
 	x, p
 end
 
@@ -213,6 +215,7 @@ This system has two solutions; physically, these correspond to stable and unstab
 """
 
 # ╔═╡ 1a98df17-3fd6-4ccf-8375-60eab7a6556d
+#x: 2023-03-29-autocatalytic
 function autocatalytic(v)
 	N = length(v)
 	fv = exp.(v)
@@ -221,6 +224,7 @@ function autocatalytic(v)
 	fv[2:N  ] += (N+1)^2*v[1:N-1]
 	fv
 end
+#x-
 
 # ╔═╡ e98e962c-df4e-439f-bfec-611e298a6ea1
 md"""
@@ -232,10 +236,12 @@ where $T_N \in \mathbb{R}^{N \times N}$ is the tridiagonal matrix with $2$ down 
 """
 
 # ╔═╡ ee0d40b8-3114-4093-8f57-49cb7ed8b0fc
+#x: 2023-03-29-Jautocatalytic
 function Jautocatalytic(v)
 	N = length(v)
 	SymTridiagonal(exp.(v) .- 2*(N+1)^2, (N+1)^2 * ones(N-1))
 end
+#x-
 
 # ╔═╡ cfdbc815-00d9-4fff-a921-217c845fbc82
 md"""
@@ -243,6 +249,7 @@ For an initial guess, we use $v_i = \alpha x_i(1-x_i)$ for different values of $
 """
 
 # ╔═╡ fb4b9029-b474-4f94-9863-e4649548c076
+#x: 2023-03-29-newton_autocatalytic
 function newton_autocatalytic(α, N=100, nsteps=50, rtol=1e-8; 
                               monitor=(v, resid)->nothing)
 	v_all = [α*x*(1-x) for x in range(0.0, 1.0, length=N+2)]
@@ -259,6 +266,7 @@ function newton_autocatalytic(α, N=100, nsteps=50, rtol=1e-8;
 	end
 	error("Newton did not converge after $nsteps steps")
 end
+#x-
 
 # ╔═╡ e9dfc16b-7c22-4154-a819-011872ad2184
 function newton_autocatalytic_rhist(α, N=100, nsteps=50, rtol=1e-8)
@@ -300,6 +308,7 @@ Below, we compare the convergence of this fixed point iteration to Newton's meth
 """
 
 # ╔═╡ 84cdc15b-9cdd-4462-a306-e64352df4518
+#x: 2023-03-29-fp_autocatalytic
 function fp_autocatalytic(α, N=100, nsteps=500, rtol=1e-8;
 						  monitor=(v, resid)->nothing)
 	v_all = [α*x*(1-x) for x in range(0.0, 1.0, length=N+2)]
@@ -318,6 +327,7 @@ function fp_autocatalytic(α, N=100, nsteps=500, rtol=1e-8;
 	end
 	error("Fixed point iteration did not converge after $nsteps steps (α=$α)")
 end
+#x-
 
 # ╔═╡ c584e561-0b45-4274-affe-746fcccaa0e2
 function fp_autocatalytic_rhist(α, N=100, nsteps=500, rtol=1e-8)
