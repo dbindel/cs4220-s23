@@ -159,16 +159,19 @@ function test_toy_newton(x, y)
 		resids[k] = norm(fx)
 	end
 
-	p = plot(resids[resids .> 0], yscale=:log10, 
-		     ylabel="\$k\$", xlabel="\$f(x_k)\$", legend=false)
-	x, p
+	x, resids
 end
 
 # ╔═╡ 81e9aaf3-bfa5-4247-a518-a08e3f7d1c34
 ttn = test_toy_newton(1, 2)
 
 # ╔═╡ 371c69b8-8d71-4f5d-b131-394e16f4988c
-ttn[2]
+# Plot the residuals on a semilog scale
+let
+	resids = ttn[2]
+	plot(resids[resids .> 0], yscale=:log10, 
+		 ylabel="\$k\$", xlabel="\$f(x_k)\$", legend=false)
+end
 
 # ╔═╡ 60857857-aeae-4255-af74-64c535b7d66d
 md"""
@@ -224,7 +227,6 @@ function autocatalytic(v)
 	fv[2:N  ] += (N+1)^2*v[1:N-1]
 	fv
 end
-#x-
 
 # ╔═╡ e98e962c-df4e-439f-bfec-611e298a6ea1
 md"""
@@ -241,7 +243,6 @@ function Jautocatalytic(v)
 	N = length(v)
 	SymTridiagonal(exp.(v) .- 2*(N+1)^2, (N+1)^2 * ones(N-1))
 end
-#x-
 
 # ╔═╡ cfdbc815-00d9-4fff-a921-217c845fbc82
 md"""
@@ -266,7 +267,6 @@ function newton_autocatalytic(α, N=100, nsteps=50, rtol=1e-8;
 	end
 	error("Newton did not converge after $nsteps steps")
 end
-#x-
 
 # ╔═╡ e9dfc16b-7c22-4154-a819-011872ad2184
 function newton_autocatalytic_rhist(α, N=100, nsteps=50, rtol=1e-8)
@@ -327,7 +327,6 @@ function fp_autocatalytic(α, N=100, nsteps=500, rtol=1e-8;
 	end
 	error("Fixed point iteration did not converge after $nsteps steps (α=$α)")
 end
-#x-
 
 # ╔═╡ c584e561-0b45-4274-affe-746fcccaa0e2
 function fp_autocatalytic_rhist(α, N=100, nsteps=500, rtol=1e-8)
