@@ -346,6 +346,9 @@
 -
   date: 2023-03-29
   info: Newton in many dimensions
+  hw:
+    - info: Class problem
+      file: 2023-03-29-class.pdf
   ulinks:
     - info: NB (Julia)
       url: lec/2023-03-29.jl
