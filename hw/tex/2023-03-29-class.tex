@@ -1,0 +1,18 @@
+\documentclass[12pt, leqno]{article}
+\input{common}
+
+\begin{document}
+\hdr{2023-03-29}
+
+Consider the fixed point iteration $x^{k+1} = G(x^k)$ where
+\[
+G(x) = \frac{1}{4} \begin{bmatrix}
+  x_1 - \cos(x_2) \\
+  x_2 - \sin(x_1)
+\end{bmatrix}
+\]
+Argue that $\|G'(x)\|_\infty \leq \frac{1}{2}$ for all $x \in
+\mathbb{R}^2$.
+This implies that $\|G(x)-G(y)\|_\infty \leq \frac{1}{2} \|x-y\|_\infty$.
+
+\end{document}
