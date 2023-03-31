@@ -358,6 +358,8 @@
   date: 2023-03-31
   info: Gradient descent and Newton for optimization
   hw:
+    - info: Class problem
+      file: 2023-03-31-class.pdf
     - info: P2 due
       url: hw/proj2.html
   ulinks:
