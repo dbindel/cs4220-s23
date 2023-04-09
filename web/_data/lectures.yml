@@ -395,6 +395,7 @@
   info: Quasi-Newton and other iterations
   hw:
     - info: HW5 due
+      file: hw5.html
 #
 # ==================
 # Week 12 (iterations and globalization)
