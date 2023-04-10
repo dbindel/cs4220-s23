@@ -66,7 +66,7 @@ where $c \in \mathbb{R}^n$ and $d \in \mathbb{R}$.  Assume $c \neq 0$
 
 1. Complete the following code to compute $\nabla \phi(x)$ and $H_{\phi}(x)$.  We have given a tester to sanity check your result -- what is this tester doing?
 2. Complete the Newton iteration code for solving $\nabla \phi(x) = 0$, and give a semilog plot to illustrate quadratic convergence.  In the test case, does this converge to a local minimum, maximum, or saddle of $\phi$?
-3. Argue that any stationary point of $\phi$ must occur at $x = \alpha c$ where $\alpha$ is a root of the quadratic $\alpha \|c\|^2 - d \alpha - 1 = 0$.  Check that this is true for the solution computed in question 2.
+3. Argue that any stationary point of $\phi$ must occur at $x = \alpha c$ where $\alpha$ is a root of the quadratic $\alpha^2 \|c\|^2 - d \alpha - 1 = 0$.  Check that this is true for the solution computed in question 2.
 """
 
 # ╔═╡ a54ac097-57dc-41c1-880a-cd4015c51858
