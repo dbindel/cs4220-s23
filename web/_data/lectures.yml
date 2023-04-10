@@ -392,6 +392,9 @@
       url: lec/2023-04-10.jl
     - info: NB (HTML)
       url: lec/2023-04-10.html
+  hw:
+    - info: Class problem
+      file: 2023-04-10-class.pdf
 -
   date: 2023-04-12
   info: Modified Newton iterations
@@ -400,6 +403,9 @@
       url: lec/2023-04-12.jl
     - info: NB (HTML)
       url: lec/2023-04-12.html
+  hw:
+    - info: Class problem
+      file: 2023-04-12-class.pdf
 -
   date: 2023-04-14
   info: Quasi-Newton and other iterations
