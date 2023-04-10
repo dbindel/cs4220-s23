@@ -387,12 +387,27 @@
 -
   date: 2023-04-10
   info: Gauss-Newton and nonlinear least squares
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2023-04-10.jl
+    - info: NB (HTML)
+      url: lec/2023-04-10.html
 -
   date: 2023-04-12
   info: Modified Newton iterations
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2023-04-12.jl
+    - info: NB (HTML)
+      url: lec/2023-04-12.html
 -
   date: 2023-04-14
   info: Quasi-Newton and other iterations
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2023-04-14.jl
+    - info: NB (HTML)
+      url: lec/2023-04-14.html
   hw:
     - info: HW5 due
       file: hw5.html
