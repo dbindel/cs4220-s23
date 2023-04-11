@@ -72,6 +72,97 @@ where $c \in \mathbb{R}^n$ and $d \in \mathbb{R}$.  Assume $c \neq 0$
 # ╔═╡ a54ac097-57dc-41c1-880a-cd4015c51858
 ϕ(x, c, d) = exp(-x'*x/2) * (c'*x-d)
 
+# ╔═╡ 06bc5126-2809-40f5-8ee1-0f87d82cb92d
+# ╠═╡ disabled = true
+#=╠═╡
+function ϕderivs(x, c, d)
+	f = exp(-x'*x/2)
+	g = c'*x-d
+	ϕ = f*g
+
+	# TODO: Compute the gradient ∇ϕ and the Hessian Hϕ
+
+	ϕ, ∇ϕ, Hϕ
+end
+  ╠═╡ =#
+
+# ╔═╡ bdf3bfd9-5a75-4e59-b51f-20663f51abf5
+# ╠═╡ disabled = true
+#=╠═╡
+# Sanity check correctness of derivatives
+let
+	h = 1e-4
+	c = rand(2)
+	d = rand()
+	x = rand(2)
+	u = rand(2)
+	ϕ0, ∇ϕ, Hϕ = ϕderivs(x, c, d)
+
+	ϕp = ϕ(x+h*u, c, d)
+	ϕm = ϕ(x-h*u, c, d)
+	ϕ0 = ϕ(x, c, d)
+	∂ϕ_∂u_fd = (ϕp - ϕm)/(2*h)
+	∂2ϕ_∂u2_fd = (ϕp - 2*ϕ0 + ϕm)/(h*h)
+
+	(∂ϕ_∂u_fd-∇ϕ'*u)/(∇ϕ'*u),
+	(∂2ϕ_∂u2_fd-u'*Hϕ*u)/(u'*Hϕ*u)
+end
+  ╠═╡ =#
+
+# ╔═╡ c4d2741d-af5e-4552-b3d2-e6540422b4a6
+# ╠═╡ disabled = true
+#=╠═╡
+function ϕnewton(x0, c, d; maxiter=10, ∇ϕtol=1e-8, monitor=(x, ϕ, ∇ϕ)->nothing)
+	x = copy(x0)
+	ϕ, ∇ϕ, Hϕ = ϕderivs(x, c, d)
+	monitor(x, ϕ, ∇ϕ)
+	for k = 1:maxiter
+
+		# TODO: Compute a Newton update
+
+		ϕ, ∇ϕ, Hϕ = ϕderivs(x, c, d)
+		monitor(x, ϕ, ∇ϕ)
+		if norm(∇ϕ) < ∇ϕtol
+			return x
+		end
+	end
+	error("Did not converge in $maxiter steps")
+end
+  ╠═╡ =#
+
+# ╔═╡ 76ac3859-7c6c-4637-a648-1861411dec4d
+# ╠═╡ disabled = true
+#=╠═╡
+let
+	x = [0.0; 0.0]
+	c = [1.0; 2.0]
+	d = 3.0
+	resids = []
+	monitor(x, ϕ, ∇ϕ)=push!(resids, norm(∇ϕ))
+	x = ϕnewton(x, c, d, monitor=monitor)
+
+	# TODO: Print x, y; 
+	#       plot norm(∇ϕ) vs iteration to show quadratic convergence;
+	#       diagnose min/max/saddle;
+	#       check that the conditions in problem 3 are satisfied
+	ϕ, ∇ϕ, Hϕ = ϕderivs(x, c, d)
+	α = c\x
+	presid = norm(c)^2*α^2 - d*α - 1
+
+	p = plot(resids, yscale=:log10)
+md"""
+- x = ($(x[1]), $(x[2]))
+- Hϕ posdef? $(isposdef(Hϕ))
+- x = αc? $(norm(x-α*c)/norm(x))
+- α |c|^2 - d α - 1 = $(presid)
+
+$p
+"""
+	md"""
+	"""
+end
+  ╠═╡ =#
+
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
 [deps]
