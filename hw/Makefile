@@ -31,6 +31,7 @@ CLASS_HW=\
 	pdf/2023-03-31-class.pdf \
 	pdf/2023-04-10-class.pdf \
 	pdf/2023-04-12-class.pdf \
+	pdf/2023-04-14-class.pdf \
 	pdf/proj-5223.pdf
 
 HW=$(CLASS_HW) \

@@ -1,0 +1,17 @@
+\documentclass[12pt, leqno]{article}
+\input{common}
+
+\begin{document}
+\hdr{2023-04-14}
+
+The (good) Broyden update formula is
+\[
+  J_{k+1} = J_k + \frac{f(x^k) (s^k)^T}{\|s^k\|^2}, \quad s^k = x^{k+1}-x^k.
+\]
+Argue that $J^{k+1}$ is the minimal change from $J^k$ in Frobenius norm that
+satisfies the secant condition
+\[
+  J_{k+1} (x^{k+1}-x^k) = f(x^{k+1})-f(x^k).
+\]
+
+\end{document}
