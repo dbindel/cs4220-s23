@@ -415,6 +415,8 @@
     - info: NB (HTML)
       url: lec/2023-04-14.html
   hw:
+    - info: Class problem
+      file: 2023-04-14-class.pdf
     - info: HW5 due
       file: hw5.html
 #
