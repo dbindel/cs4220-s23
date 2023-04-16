@@ -457,7 +457,7 @@ let
         write_resids("rhist$α", rhist)
 
         # Write plots to file
-        open("../data/2023-03-29-vplot$α", "w") do f
+        open("../data/2023-03-29-vplot$α.txt", "w") do f
             xx = range(0.0, 1.0, length=102)
             for (x,vx) in zip(xx, v)
                 println(f, "$x $vx")
