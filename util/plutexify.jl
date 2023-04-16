@@ -379,6 +379,9 @@ function pandoc_markdown_latex(s)
     replace(result, r"\n\n+" => "\n\n")
 end
 
+# Experimental version using the Markdown package LaTeX output code.
+# Unfortunately, this seems to have a harder time with correct rendering.
+#
 function markdown_latex(s)
     result = Markdown.latex(Markdown.parse(markdown_to_pandoc(s)))
     replace(result,
