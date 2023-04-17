@@ -6,6 +6,7 @@ exec julia --color=yes --startup-file=no -e 'include(popfirst!(ARGS))' \
 
 using Pluto
 using Markdown
+using Mustache
 
 
 # --- Lexical analysis ---
@@ -90,17 +91,19 @@ end
 # Cell attributes include:
 #  - hidden (boolean) - indicates if code is folded
 #  - disabled (boolean) - indicates if code is disabled in Pluto
+#  - mustache (boolean) - preprocess the code with the Mustache engine
 #  - input=(pluto, markdown, tex) - indicates type of input cell (default pluto)
 #  - output=(pluto, tex, all, none) - indicate where cell output should go
 
 hidden(c :: Cell) =
     if c.is_code
-        get(c.flags, "hidden", "false") == "true"
+       get(c.flags, "hidden", "false") == "true"
     else
         get(c.flags, "hidden", "true") == "true"
     end
 
 disabled(c :: Cell) = (get(c.flags, "disabled", "false") == "true")
+mustache(c :: Cell) = (get(c.flags, "mustache", "false") == "true")
 input_type(c :: Cell) = get(c.flags, "input", "pluto")
 output_type(c :: Cell) = get(c.flags, "output", "all")
 
@@ -268,6 +271,20 @@ function process_file(lines)
     end
     cells
 end
+
+
+# --- Mustache templating ---
+
+function mustache_cell(c :: Cell)
+    if c.is_code || !mustache(c)
+        c
+    else
+        text_cell(Mustache.render(Mustache.parse(c.results), c.mode_flags),
+                  mode_flags)
+    end
+end
+
+mustache_cells(cells) = [mustache_cell(c) for c in cells]
 
 
 # --- Plain output ---
@@ -486,6 +503,9 @@ function main(args)
     for fname in input_names
         append!(cells, process_file(eachline(fname)))
     end
+
+    # Apply Mustache templating
+    cells = mustache_cells(cells)
 
     # Print a representation of the parse (useful for debugging)
     if verbose

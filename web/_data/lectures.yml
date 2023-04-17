@@ -427,14 +427,27 @@
 -
   date: 2023-04-17
   info: Line search and globalization
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2023-04-17.jl
+    - info: NB (HTML)
+      url: lec/2023-04-17.html
 -
   date: 2023-04-19
   info: Trust regions
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2023-04-19.jl
+    - info: NB (HTML)
+      url: lec/2023-04-19.html
 -
   date: 2023-04-21
   info: Homotopy and continuation
-  hw:
-    - info: P3 check-in
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2023-04-21.jl
+    - info: NB (HTML)
+      url: lec/2023-04-21.html
 #
 # ==================
 # Week 14 (globalization and constraints)
