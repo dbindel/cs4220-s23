@@ -161,9 +161,9 @@ md"""
 
 For any $K$, the standard map has two fixed points at $(0, 0)$ and $(\pi, 0)$.  If $G(z_*) = z_*$ is a fixed point of $G$, then for starting points $z_0$ near $z_*$, the dynamics of the iteration $z_{k+1} = G(z_k)$ are locally approximated by $\delta z_{k+1} = G'(z_*) \delta z_k$.  Therefore, we classify the fixed point by the eigenvalues of $G'(z_*)$, similar to the way we do phase plane analysis of fixed points of differential equations.  Because $\det(G'(z_*)) = 1$, the possible classifications are:
 
-- The Jacobian has complex conjugate roots on the unit circle.  In this case, $z_*$ is a *center* (also called an "O point").  Near an O point, the linearized dynamics trace out *quasiperiodic orbits*.
-- The Jacobian has real roots, with one greater than one in magnitude and the other less than one in magnitude.  In this case, $z_*$ is a *saddle* (also called an "X point").
-- The Jacobian has a double root at $1$ or $-1$.
+- The Jacobian has complex conjugate eigenvalues on the unit circle.  In this case, $z_*$ is a *center* (also called an "O point").  Near an O point, the linearized dynamics trace out *quasiperiodic orbits*.
+- The Jacobian has real eigenvalues, with one greater than one in magnitude and the other less than one in magnitude.  In this case, $z_*$ is a *saddle* (also called an "X point").
+- The Jacobian has a double eigenvalue at $1$ or $-1$.
 
 Because the characteristic polynomial of a 2-by-2 matrix $A$ is
 
@@ -447,7 +447,7 @@ md"""
 
 To approximate smooth closed curves will work with truncated Fourier expansion approximations, i.e.
 
-$$z(\theta) = a_0 + \sum_{m=1}^M A_m \begin{bmatrix} \cos(\theta) \\ \sin(\theta) \end{bmatrix}$$
+$$z(\theta) = a_0 + \sum_{m=1}^M A_m \begin{bmatrix} \cos(m\theta) \\ \sin(m\theta) \end{bmatrix}$$
 
 where $a_0 \in \mathbb{R}^2$ and $A_m \in \mathbb{R}^{2 \times 2}$.  We are going to store the collection of coefficients in a single vector of size $4M+2$. From this representation, we want to be able to evaluate $z(\theta)$ and $z'(\theta)$.
 
@@ -1822,7 +1822,6 @@ version = "1.4.1+0"
 # ╠═eca2fc2d-685d-4525-a1b2-069d90a7413a
 # ╠═2e4dbf6f-32b5-4cf7-b949-0eedf0debbd0
 # ╟─75af3aaf-84e5-480d-a768-c31c9a3613e9
-# ╠═0707f9f7-b6f0-4428-b3ec-20c87ff4e922
 # ╟─4e4c8a70-0f88-4379-90fd-d90f87e45fd6
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
