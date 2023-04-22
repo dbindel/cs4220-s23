@@ -333,9 +333,9 @@ end
 
 # Process an iterator over lines, get a list of cells
 #
-function process_file(lines)
+function process_file(lines, mode_flags = Dict{String,String}())
     n = iterate(lines)
-    mode_flags = Dict{String,String}()
+    mode_flags = copy(mode_flags)
     cells = Vector{Cell}()
     while n != nothing
         line, state = n
@@ -549,6 +549,7 @@ function main(args)
     standalone = false
 
     # Process command line arguments
+    mode_string=""
     n = iterate(args)
     while n != nothing
         arg, state = n
@@ -573,6 +574,13 @@ function main(args)
             end
             arg, state = n
             preamble_name = arg
+        elseif arg == "-m"
+            n = iterate(args, state)
+            if n == nothing
+                error("Missing flag assignment")
+            end
+            arg, state = n
+            mode_string = mode_string * " " * arg
         elseif arg == "-v"
             verbose = true
         elseif arg == "-s"
@@ -588,6 +596,7 @@ function main(args)
     # Print command line flags
     if verbose
         println("--- Command line flags ---")
+        println("mode:     $mode_flags")
         println("Pluto:    $pluto_name")
         println("LaTeX:    $tex_name")
         println("Input:    $input_names")
@@ -596,9 +605,10 @@ function main(args)
     end
 
     # Parse all input files
+    mode_flags = parse_mode(mode_string)
     cells = Vector{Cell}()
     for fname in input_names
-        append!(cells, process_file(eachline(fname)))
+        append!(cells, process_file(eachline(fname), mode_flags))
     end
 
     # Apply Mustache templating
