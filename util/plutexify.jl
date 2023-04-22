@@ -31,13 +31,15 @@ using Mustache
     MEND=9       # Cell end meta-line (#-end)
     MDCELL=10    # Disabled cell      (#=cell)
     MODE=11      # Mode flags line    (#-mode)
-    GENERAL=12   # General line
+    CIF=12       # Disabled if block  (#=if)
+    MIF=13       # Meta-line if block (#-if)
+    GENERAL=14   # General line
 end
 
 function Base.show(io :: IO, tok :: LTokType)
     names = ["TQ", "WS", "BEGIN", "END", "CLINE",
              "CSTART", "CEND", "MCELL", "MEND", "MDCELL",
-             "MODE", "GENERAL"]
+             "MODE", "CIF", "MIF", "GENERAL"]
     names[Int(tok)]
 end
 
@@ -53,11 +55,13 @@ function toktype(line)
     elseif occursin(r"^(mutable\s+)?struct(\s+|$)", line)  BEGIN
     elseif occursin(r"^end(^\s+|$)", line)   BEND
     elseif occursin(r"^#=cell", line)        MDCELL
+    elseif occursin(r"^#=if", line)          CIF
     elseif occursin(r"^#=", line)            CSTART
     elseif occursin(r"^=#", line)            CEND
     elseif occursin(r"^#-cell", line)        MCELL
     elseif occursin(r"^#-end", line)         MEND
     elseif occursin(r"^#-mode", line)        MODE
+    elseif occursin(r"^#-if", line)          MIF
     elseif occursin(r"^#",  line)            CLINE
     else                                     GENERAL
     end
@@ -143,6 +147,64 @@ function parse_mode(s, mode_defaults=Dict{String,String}())
     mode_flags
 end
 
+# Check if any flags are enabled
+function parse_enabled(s, mode_flags)
+    is_enabled = false
+    for flag in split(s, r"\s+")
+        x = get(mode_flags, flag, "false")
+        is_enabled = (is_enabled || x == "true")
+    end
+    is_enabled
+end
+
+# Disabled if block is CIF [^CEND]* CEND
+#
+function process_cif(line, lines, state, mode_flags)
+    is_enabled = parse_enabled(line[5:end], mode_flags)
+    result = ""
+    n = iterate(lines, state)
+    while n != nothing
+        line, state = n
+        tt = toktype(line)
+        if tt == CEND
+            return (if is_enabled result else "" end), iterate(lines, state)
+        elseif tt == MIF
+            if_result, n = process_mif(line, lines, state, mode_flags)
+            result = result * if_result
+        else
+            n = iterate(lines, state)
+            result = result * line * "\n"
+        end
+    end
+    error("Unexpected EOF while processing conditional")
+end
+
+# Regular if block is MIF [^MEND]* MEND (can nest)
+#
+function process_mif(line, lines, state, mode_flags)
+    is_enabled = parse_enabled(line[5:end], mode_flags)
+    result = ""
+    n = iterate(lines, state)
+    while n != nothing
+        line, state = n
+        tt = toktype(line)
+        if tt == MEND
+            return (if is_enabled result else "" end), iterate(lines, state)
+        elseif tt == CIF
+            if_result, n = process_cif(line, lines, state, mode_flags)
+            result = result * if_result
+        elseif tt == MIF
+            if_result, n = process_mif(line, lines, state, mode_flags)
+            result = result * if_result
+        else
+            result = result * line * "\n"
+            n = iterate(lines, state)
+        end
+    end
+    error("Unexpected EOF while processing conditional")
+end
+
+
 # Quote block is TQ [^TQ]* TQ
 #    Generates a Markdown block according to current mode flags + hidden
 #
@@ -151,11 +213,19 @@ function process_quote(lines, state, mode_flags)
     result = ""
     while n != nothing
         line, state = n
-        n = iterate(lines, state)
-        if toktype(line) == TQ
-            return text_cell(result, mode_flags), n
+        tt = toktype(line)
+        if tt == TQ
+            return text_cell(result, mode_flags), iterate(lines, state)
+        elseif tt == CIF
+            if_result, n = process_cif(line, lines, state, mode_flags)
+            result = result * if_result
+        elseif tt == MIF
+            if_result, n = process_mif(line, lines, state, mode_flags)
+            result = result * if_result
+        else
+            result = result * line * "\n"
+            n = iterate(lines, state)
         end
-        result = result * line * "\n"
     end
     error("Unexpected EOF while processing quote")
 end
@@ -170,11 +240,16 @@ function process_cblock(line, lines, state, mode_flags)
     n = iterate(lines, state)
     while n != nothing
         line, state = n
-        n = iterate(lines, state)
-        if toktype(line) == CEND
-            return text_cell(result, mode_flags), n
+        tt = toktype(line)
+        if tt == CEND
+            return text_cell(result, mode_flags), iterate(lines, state)
+        elseif tt == MIF
+            if_result, n = process_mif(line, lines, state, mode_flags)
+            result = result * if_result
+        else
+            n = iterate(lines, state)
+            result = result * line * "\n"
         end
-        result = result * line * "\n"
     end
     error("Unexpected EOF while processing multi-line comment")
 end
@@ -187,10 +262,19 @@ function process_begin(line, lines, state, mode_flags)
     n = iterate(lines, state)
     while n != nothing
         line, state = n
-        n = iterate(lines, state)
-        result = result * line * "\n"
-        if toktype(line) == BEND
-            return code_cell(result, mode_flags), n
+        tt = toktype(line)
+        if tt == BEND
+            result = result * line * "\n"
+            return code_cell(result, mode_flags), iterate(lines, state)
+        elseif tt == CIF
+            if_result, n = process_cif(line, lines, state, mode_flags)
+            result = result * if_result
+        elseif tt == MIF
+            if_result, n = process_mif(line, lines, state, mode_flags)
+            result = result * if_result
+        else
+            result = result * line * "\n"
+            n = iterate(lines, state)
         end
     end
     error("Unexpected EOF while processing code block")
@@ -205,11 +289,19 @@ function process_cell(line, lines, state, mode_flags)
     n = iterate(lines, state)
     while (n != nothing)
         line, state = n
-        n = iterate(lines, state)
-        if toktype(line) == MEND
-            return code_cell(result, mode_flags), n
+        tt = toktype(line)
+        if tt == MEND
+            return code_cell(result, mode_flags), iterate(lines, state)
+        elseif tt == CIF
+            if_result, n = process_cif(line, lines, state, mode_flags)
+            result = result * if_result
+        elseif tt == MIF
+            if_result, n = process_mif(line, lines, state, mode_flags)
+            result = result * if_result
+        else
+            n = iterate(lines, state)
+            result = result * line * "\n"
         end
-        result = result * line * "\n"
     end
     error("Unexpected EOF while processing #-cell")
 end
@@ -225,11 +317,16 @@ function process_dcell(line, lines, state, mode_flags)
     n = iterate(lines, state)
     while (n != nothing)
         line, state = n
-        n = iterate(lines, state)
-        if toktype(line) == CEND
-            return code_cell(result, mode_flags), n
+        tt = toktype(line)
+        if tt == CEND
+            return code_cell(result, mode_flags), iterate(lines, state)
+        elseif tt == MIF
+            if_result, n = process_mif(line, lines, state, mode_flags)
+            result = result * if_result
+        else
+            n = iterate(lines, state)
+            result = result * line * "\n"
         end
-        result = result * line * "\n"
     end
     error("Unexpected EOF while processing #=cell")
 end
