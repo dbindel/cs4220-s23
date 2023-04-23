@@ -675,6 +675,6 @@ let
 end
 #-end
 
-#-cell output=pluto
+#-cell output=none
 savefig("../fig/2023-04-14-aa.pdf")
 #-end
