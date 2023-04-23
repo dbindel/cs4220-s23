@@ -431,6 +431,7 @@
 -
   date: 2023-04-17
   info: Line search and globalization
+  notes: 2023-04-17.pdf
   ulinks:
     - info: NB (Julia)
       url: lec/2023-04-17.jl
@@ -442,6 +443,7 @@
 -
   date: 2023-04-19
   info: Trust regions
+  notes: 2023-04-19.pdf
   ulinks:
     - info: NB (Julia)
       url: lec/2023-04-19.jl
