@@ -358,6 +358,7 @@
 -
   date: 2023-03-31
   info: Gradient descent and Newton for optimization
+  notes: 2023-03-31.pdf
   hw:
     - info: Class problem
       file: 2023-03-31-class.pdf
@@ -388,6 +389,7 @@
 -
   date: 2023-04-10
   info: Gauss-Newton and nonlinear least squares
+  notes: 2023-04-10.pdf
   ulinks:
     - info: NB (Julia)
       url: lec/2023-04-10.jl
@@ -399,6 +401,7 @@
 -
   date: 2023-04-12
   info: Modified Newton iterations
+  notes: 2023-04-12.pdf
   ulinks:
     - info: NB (Julia)
       url: lec/2023-04-12.jl
@@ -410,6 +413,7 @@
 -
   date: 2023-04-14
   info: Quasi-Newton and other iterations
+  notes: 2023-04-14.pdf
   ulinks:
     - info: NB (Julia)
       url: lec/2023-04-14.jl
