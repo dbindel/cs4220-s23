@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.22
+# v0.19.25
 
 using Markdown
 using InteractiveUtils
@@ -192,7 +192,7 @@ test_jacobian((x) -> biox_J(x)'*biox_f(x), biox_H, biox_β0)
 
 # ╔═╡ f3f23a2f-424d-4c8e-9173-b0c39b45d4f1
 md"""
-Having reassured ourselves that we have a good initial guess and a correct Jacobian, let's apply Gauss-Newton to solve the problem.
+Having reassured ourselves that we have a good initial guess and a correct Jacobian, let's apply both Gauss-Newton and Newton to solve the problem.
 """
 
 # ╔═╡ 5e255efd-fbec-4867-b416-18f46bca348a
@@ -201,14 +201,6 @@ begin
 	gauss_newton(biox_f, biox_J, biox_β0, rtol=1e-14, 
 		         monitor=(x, rnorm)->push!(biox_resids, rnorm))
 end
-
-# ╔═╡ 8e1802a4-ec72-4e05-a5d4-a76ee07ba3de
-plot(biox_resids, yscale=:log10, ylabel="|J'f|", xlabel="k", legend=false)
-
-# ╔═╡ bb535f1b-ffb8-4ed7-a496-c51d903ffb19
-md"""
-Compared to the Newton iteration, Gauss-Newton is getting (fast) linear convergence, and ends up taking about twice as many iterations to drive the residual down close to $10^{-15}$.  At the same time, Gauss-Newton doesn't require that we form the Hessian matrix!
-"""
 
 # ╔═╡ daf51284-fd8d-4959-9afd-d0d1db8d765d
 begin
@@ -221,9 +213,17 @@ begin
 	biox_β
 end
 
-# ╔═╡ 2b8f8d1d-33cf-4423-a78f-161b2196f7ad
-plot(biox_resids_n[biox_resids_n .> 0], yscale=:log10,
-	 ylabel="|J'f|", xlabel="k", legend=false)
+# ╔═╡ 8e1802a4-ec72-4e05-a5d4-a76ee07ba3de
+let
+	plot(biox_resids, yscale=:log10,
+		 ylabel="\$||J^T f(x_k)||\$", xlabel="\$k\$", label="Gauss-Newton")
+	plot!(biox_resids_n[biox_resids_n .> 0], label="Newton")
+end
+
+# ╔═╡ bb535f1b-ffb8-4ed7-a496-c51d903ffb19
+md"""
+Compared to the Newton iteration, Gauss-Newton is getting (fast) linear convergence, and ends up taking about twice as many iterations to drive the residual down close to $10^{-15}$.  At the same time, Gauss-Newton doesn't require that we form the Hessian matrix!
+"""
 
 # ╔═╡ 2cfe059b-484b-4b20-8504-cb48ad793e1d
 md"""
@@ -464,7 +464,7 @@ begin
 end
 
 # ╔═╡ a816c0f6-b310-41b9-86fb-a045db32fbf0
-plot(lorx_resids, yscale=:log10, ylabel="|J'f|", xlabel="k", legend=false)
+plot(lorx_resids, yscale=:log10, ylabel="\$||J^T f(x_k)||\$", xlabel="\$k\$", legend=false)
 
 # ╔═╡ 3f9614b9-6522-40c0-99ac-7a36e6d5fecf
 md"""
@@ -586,7 +586,8 @@ begin
 end
 
 # ╔═╡ 216edd0d-50c1-4e72-8177-c3ce62b143e8
-plot(lorx_resids_p, yscale=:log10, ylabel="|J'f|", xlabel="k", legend=false)
+plot(lorx_resids_p, yscale=:log10,
+	 ylabel="\$||J^T f(x_k)||\$", xlabel="\$k\$", legend=false)
 
 # ╔═╡ 36c8ec85-bda2-4ddb-aff5-b4e1bebe4ede
 md"""
@@ -1761,10 +1762,9 @@ version = "0.9.1+5"
 # ╠═683ff418-fc0f-49cf-874a-a933ec75d13f
 # ╟─f3f23a2f-424d-4c8e-9173-b0c39b45d4f1
 # ╠═5e255efd-fbec-4867-b416-18f46bca348a
+# ╠═daf51284-fd8d-4959-9afd-d0d1db8d765d
 # ╠═8e1802a4-ec72-4e05-a5d4-a76ee07ba3de
 # ╟─bb535f1b-ffb8-4ed7-a496-c51d903ffb19
-# ╠═daf51284-fd8d-4959-9afd-d0d1db8d765d
-# ╠═2b8f8d1d-33cf-4423-a78f-161b2196f7ad
 # ╟─2cfe059b-484b-4b20-8504-cb48ad793e1d
 # ╟─6735c368-d92e-4cbd-91e8-8c290c789047
 # ╠═2d4eb5a4-c546-4b07-a2de-e952df141d2e
