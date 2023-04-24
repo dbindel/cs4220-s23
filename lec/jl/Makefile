@@ -8,7 +8,8 @@ SRC=	2023-03-29.jl \
 	2023-04-12.jl \
 	2023-04-14.jl \
 	2023-04-17.jl \
-	2023-04-19.jl
+	2023-04-19.jl \
+	2023-04-21.jl
 
 TEX=$(patsubst %.jl,../notes/%.tex,$(SRC))
 PLUTO=$(patsubst %.jl,../pluto2/%.jl,$(SRC))
