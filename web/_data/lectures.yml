@@ -471,6 +471,12 @@
 -
   date: 2023-04-24
   info: Constraints and multipliers
+  notes: 2023-04-24.pdf
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2023-04-24.jl
+    - info: NB (HTML)
+      url: lec/2023-04-24.html
 -
   date: 2023-04-26
   info: Methods for equality constraints
