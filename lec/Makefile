@@ -65,7 +65,9 @@ PLUTO= \
 	pluto/2023-04-17.jl \
 	pluto/2023-04-19.jl \
 	pluto/2023-04-21.jl \
-	pluto/2023-04-24.jl 
+	pluto/2023-04-24.jl \
+	pluto/2023-04-26.jl \
+	pluto/2023-04-28.jl 
 
 HTML= \
 	html/2023-01-23.html \
@@ -93,7 +95,9 @@ HTML= \
 	html/2023-04-17.html \
 	html/2023-04-19.html \
 	html/2023-04-21.html \
-	html/2023-04-24.html 
+	html/2023-04-24.html \
+	html/2023-04-26.html \
+	html/2023-04-28.html 
 
 .PHONY: all copy fragments
 all: $(LEC) $(HTML)
