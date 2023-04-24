@@ -455,6 +455,7 @@
 -
   date: 2023-04-21
   info: Homotopy and continuation
+  notes: 2023-04-21.pdf
   ulinks:
     - info: NB (Julia)
       url: lec/2023-04-21.jl
