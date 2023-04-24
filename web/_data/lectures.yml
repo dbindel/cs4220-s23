@@ -480,6 +480,12 @@
 -
   date: 2023-04-26
   info: Methods for equality constraints
+  notes: 2023-04-26.pdf
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2023-04-26.jl
+    - info: NB (HTML)
+      url: lec/2023-04-26.html
 -
   date: 2023-04-28
   info: Methods for inequality constraints
