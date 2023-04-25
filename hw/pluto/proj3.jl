@@ -80,7 +80,7 @@ The goal of this project is to understand how to compute different types of inva
 md"""
 ## Warm up
 
-Let's denote a general point in the phase space as $z = (x, p) \in \mathbb{T}$, where $\mathbb{T} = \mathbb{R} / 2\pi\mathbb{Z}$ is a torus (i.e., $x$ and $p$ are angles and are only defined up to integer multiples of $2\pi$).  We will also write $G : \mathbb{T} \rightarrow \mathbb{T}$ to denote the standard map.
+Let's denote a general point in the phase space as $z = (x, p) \in \mathbb{T}^2$, where $\mathbb{T} = \mathbb{R} / 2\pi\mathbb{Z}$ is a torus (i.e., $x$ and $p$ are angles and are only defined up to integer multiples of $2\pi$).  We will also write $G : \mathbb{T}^2 \rightarrow \mathbb{T}^2$ to denote the standard map.
 """
 
 # ╔═╡ 5e0816e0-595e-49ff-9c29-d0f2e75f6e5c
@@ -1822,6 +1822,7 @@ version = "1.4.1+0"
 # ╠═eca2fc2d-685d-4525-a1b2-069d90a7413a
 # ╠═2e4dbf6f-32b5-4cf7-b949-0eedf0debbd0
 # ╟─75af3aaf-84e5-480d-a768-c31c9a3613e9
+# ╠═a702563b-4425-401c-8fba-60f859d2dfa8
 # ╟─4e4c8a70-0f88-4379-90fd-d90f87e45fd6
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
