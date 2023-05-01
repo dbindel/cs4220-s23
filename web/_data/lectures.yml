@@ -519,6 +519,9 @@
       url: lec/2023-05-01.jl
     - info: NB (HTML)
       url: lec/2023-05-01.html
+  hw:
+    - info: Class problem
+      file: 2023-05-01-class.pdf
 -
   date: 2023-05-03
   info: Stochastic optimizers
