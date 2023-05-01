@@ -530,6 +530,7 @@
   info: Review
   hw:
     - info: HW 6 due
+      file: hw6.html
 #
 # ==================
 # Week 16 (wrap-up)

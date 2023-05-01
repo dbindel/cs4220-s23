@@ -50,7 +50,8 @@ HW=$(CLASS_HW) \
 	pluto/hw4.jl html/hw4.html \
 	pluto/proj2.jl html/proj2.html \
 	pluto/hw5.jl html/hw5.html \
-	pluto/proj3.jl html/proj3.html 
+	pluto/proj3.jl html/proj3.html \
+	pluto/hw6.jl html/hw6.html 
 
 .PHONY: all copy
 all: $(HW)
