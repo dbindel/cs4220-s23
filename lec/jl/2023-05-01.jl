@@ -193,7 +193,7 @@ where the vector $r$ consist of remainder terms from Taylor's theorem
 with remainder.  If the gradient is Lipschitz with constant $M$, then
 the terms satisfy
 \[
-  r_i \leq M \|x_i-x_0\|^2 \leq M d^2/2
+  r_i \leq M \|x_i-x_0\|^2/2 \leq M d^2/2
 \]
 where $d$ is the diameter of the simplex.  Therefore, we expect
 \[
