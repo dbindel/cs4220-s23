@@ -513,6 +513,12 @@
 -
   date: 2023-05-01
   info: Derivative free methods
+  notes: 2023-05-01.pdf
+  ulinks:
+    - info: NB (Julia)
+      url: lec/2023-05-01.jl
+    - info: NB (HTML)
+      url: lec/2023-05-01.html
 -
   date: 2023-05-03
   info: Stochastic optimizers
