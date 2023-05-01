@@ -4,18 +4,18 @@
 using Markdown
 using InteractiveUtils
 
-# ╔═╡ 405d7594-e7c2-11ed-03ba-27e2cce7ba9e
+# ╔═╡ b9b3256e-e7c3-11ed-1f82-0f881b2d55d9
 using LinearAlgebra
 
-# ╔═╡ 405d75f8-e7c2-11ed-23e8-4377c27c23bd
+# ╔═╡ b9b325aa-e7c3-11ed-3e74-5b1edac5cbc8
 using Plots
 
-# ╔═╡ 405d74a4-e7c2-11ed-025c-09c863d54b56
+# ╔═╡ b9b3249e-e7c3-11ed-00f1-0fd22dc087a8
 md"""
 # Notebook for 2023-05-01
 """
 
-# ╔═╡ 405d77a6-e7c2-11ed-170d-51818da43cbb
+# ╔═╡ b9b3271c-e7c3-11ed-2f4d-63bd2cc1e217
 md"""
 ## Lay of the Land
 
@@ -91,7 +91,7 @@ lecture notes; a few I like include:
 
 """
 
-# ╔═╡ 405d783c-e7c2-11ed-3128-df672b45ccab
+# ╔═╡ b9b327a8-e7c3-11ed-3571-5b9c237220e6
 md"""
 ## Model-based methods
 
@@ -117,7 +117,7 @@ model" approach, but we will use models based on interpolation
 approach.  There are several variants.
 """
 
-# ╔═╡ 405d788c-e7c2-11ed-3b8d-5197d3c35488
+# ╔═╡ b9b32800-e7c3-11ed-0114-cd372bf44813
 md"""
 ### Finite difference derivatives
 
@@ -144,7 +144,7 @@ unique to finite difference computations, and indeed tends to be a
 limit to a lot of derivative-free methods.
 """
 
-# ╔═╡ 405d797a-e7c2-11ed-23c8-1d8a2c6b3afd
+# ╔═╡ b9b328f2-e7c3-11ed-3942-1d001b6eff20
 md"""
 ### Linear models
 
@@ -181,7 +181,7 @@ recomputing every time at a cost of $O(d^3)$.  We do not bother to do
 this here, though.
 """
 
-# ╔═╡ 405d797a-e7c2-11ed-2cc0-81dd2a9a8fa4
+# ╔═╡ b9b328fc-e7c3-11ed-15d2-e3446c5264dd
 function simplex_gradient(xs, fxs)
     d, np1 = size(xs)
     A = (xs[:,2:end].-xs[:,1])'
@@ -189,7 +189,7 @@ function simplex_gradient(xs, fxs)
     ∇f_s, cond(A)
 end
 
-# ╔═╡ 405d7a30-e7c2-11ed-2c8b-fdaffab2d746
+# ╔═╡ b9b32988-e7c3-11ed-02d0-87a15e466482
 md"""
 The true gradient satisfies
 
@@ -199,25 +199,25 @@ where the vector $r$ consist of remainder terms from Taylor's theorem
 with remainder.  If the gradient is Lipschitz with constant $M$, then
 the terms satisfy
 
-$$r_i \leq M \|x_i-x_0\|^2 \leq M d^2$$
+$$r_i \leq M \|x_i-x_0\|^2 \leq M d^2/2$$
 
 where $d$ is the diameter of the simplex.  Therefore, we expect
 
 $$\|\hat{\nabla} f(x_0) - \nabla f(x_0)\| \leq 
-  \|A^{-1} r\| \leq \|(A/d)^{-1}\| Md$$
+  \|A^{-1} r\| \leq \|(A/d)^{-1}\| Md/2$$
 
 where $\|(A/d)^{-1}\|$ is scaled so that only the geometry of the simplex
 matters.  Alternately, we have the relative error bound
 
 $$\frac{\|\hat{\nabla} f(x_0) - \nabla f(x_0)\|}{\|\nabla f(x_0)\|} \leq 
-  \kappa(A) \frac{Md}{\|y\|/d}$$
+  \kappa(A) \frac{Md}{2\|y\|/d}$$
 
 However we write the bounds, a key aspect to these methods is ensuring
 that the computation of the affine function from the simplex remains
 well-conditioned.
 """
 
-# ╔═╡ 405d7a7e-e7c2-11ed-04f0-a9aa58829917
+# ╔═╡ b9b329a6-e7c3-11ed-210d-b5b311d2210d
 md"""
 We give an example of the effects of geometry below by using a simplex
 gradient approximation of a 2D function where we make the simplex closer
@@ -225,7 +225,7 @@ and closer to degenerate.  As we get closer to degenerate, the error in
 the gradient estimate increases.
 """
 
-# ╔═╡ 405d7a9e-e7c2-11ed-208f-2777dfc32849
+# ╔═╡ b9b329ce-e7c3-11ed-3bf1-7f2dc364a67b
 let
     ϕ(x) = 0.5*(x[1]-2)^2 + 0.5*(x[2]-1)^4
     ∇ϕ(x) = [x[1]-2; 2*(x[2]-1)^3]
@@ -244,7 +244,7 @@ let
     plot(ys, errs, xlabel="\$y\$", ylabel="Simplex rel error", yscale=:log10)
 end
 
-# ╔═╡ 405d7ac6-e7c2-11ed-0e9b-55e18e65e2f9
+# ╔═╡ b9b329f6-e7c3-11ed-112e-c948b804ab4b
 md"""
 Getting a good gradient estimate gives a sense of which way to go,
 but in order to get good convergence we also need a globalization
@@ -257,7 +257,7 @@ One of the most popular of this family of method is Powell's COBYLA
 algorithm (Constrained Optimization BY Linear Approximation).
 """
 
-# ╔═╡ 405d7aee-e7c2-11ed-3386-9bd080234e5e
+# ╔═╡ b9b32a28-e7c3-11ed-22d3-1b67f264ec5b
 md"""
 ### Quadratic models
 
@@ -273,7 +273,7 @@ second order, and then updates that matrix on successive steps in a
 Broyden-like way.
 """
 
-# ╔═╡ 405d7b54-e7c2-11ed-1ea3-49a80e847000
+# ╔═╡ b9b32a82-e7c3-11ed-3eea-bf1c0e01e1d1
 md"""
 ### Surrogates and response surfaces
 
@@ -299,7 +299,7 @@ of known function values in a least squares sense.  This is
 particularly useful when the function values have noise.
 """
 
-# ╔═╡ 405d7b66-e7c2-11ed-06e5-4100d7902a80
+# ╔═╡ b9b32a9e-e7c3-11ed-3415-8305206bfbc8
 md"""
 ## Pattern search and simplex
 
@@ -310,7 +310,7 @@ appear.  These sometimes go under the heading of "direct search"
 methods.
 """
 
-# ╔═╡ 405d7b98-e7c2-11ed-1467-a910e7883910
+# ╔═╡ b9b32ad0-e7c3-11ed-23ff-e766cd1fade4
 md"""
 ### Nelder-Mead
 
@@ -329,7 +329,7 @@ there are examples of functions where Nelder-Mead is not guaranteed to
 converge to a minimum at all.
 """
 
-# ╔═╡ 405d7be6-e7c2-11ed-1546-535771bd2321
+# ╔═╡ b9b32b22-e7c3-11ed-0f61-77cf134f43d0
 md"""
 ### Hook-Jeeves and successors
 
@@ -347,7 +347,7 @@ direction to get from $x^{(k-1)}$ to $x^{(k)}$.  Of $x^{(k)}$ is
 better than any surrounding point, we decrease $\Delta$ and try again.
 """
 
-# ╔═╡ 405d7bf2-e7c2-11ed-06f6-9163c7184c2b
+# ╔═╡ b9b32b2c-e7c3-11ed-2967-e5629c061377
 function hooke_jeeves(ϕ, x; Δ=1.0, Δtol=1e-3, maxevals=1000,
                       monitor=(x,Δ,poll)->nothing)
 
@@ -394,13 +394,13 @@ function hooke_jeeves(ϕ, x; Δ=1.0, Δtol=1e-3, maxevals=1000,
     x, Δ
 end
 
-# ╔═╡ 405d7c06-e7c2-11ed-2295-95ff8812ce50
+# ╔═╡ b9b32b42-e7c3-11ed-22a0-01ebc7b39cd7
 md"""
 We give an example of the convergence of Hooke-Jeeves on a quadratic
 model problem below.
 """
 
-# ╔═╡ 405d7c10-e7c2-11ed-3a50-03b6d9c1cf0f
+# ╔═╡ b9b32b4a-e7c3-11ed-3c8a-c70ef407dc9f
 let
     H = [4 1; 1 3]
     ϕ(x) = (x-[1.3; 2.5])'*H*(x-[1.3; 2.5])
@@ -422,7 +422,7 @@ let
           linecolor=:red, linewidth=4, markershape=:circle)
 end
 
-# ╔═╡ 405d7c4c-e7c2-11ed-17bb-1f90dbdcfa04
+# ╔═╡ b9b32b86-e7c3-11ed-16bb-cd91d2e05be3
 md"""
 More generally, we would evaluate $\phi(x^{(k)} + d)$ for $d \in
 \mathcal{G}(\Delta)$, a *generating set* of directions with some scale
@@ -439,7 +439,7 @@ may fail in the nonsmooth case.  However, the mesh adaptive direct search
 (MADS) class of methods can converge even in this case.
 """
 
-# ╔═╡ 405d7cc4-e7c2-11ed-34c8-afaee98ae8e7
+# ╔═╡ b9b32bf4-e7c3-11ed-13fb-6bb837e94497
 md"""
 ## Summarizing thoughts
 
@@ -1432,27 +1432,27 @@ version = "1.4.1+0"
 """
 
 # ╔═╡ Cell order:
-# ╟─405d74a4-e7c2-11ed-025c-09c863d54b56
-# ╠═405d7594-e7c2-11ed-03ba-27e2cce7ba9e
-# ╠═405d75f8-e7c2-11ed-23e8-4377c27c23bd
-# ╟─405d77a6-e7c2-11ed-170d-51818da43cbb
-# ╟─405d783c-e7c2-11ed-3128-df672b45ccab
-# ╟─405d788c-e7c2-11ed-3b8d-5197d3c35488
-# ╟─405d797a-e7c2-11ed-23c8-1d8a2c6b3afd
-# ╠═405d797a-e7c2-11ed-2cc0-81dd2a9a8fa4
-# ╟─405d7a30-e7c2-11ed-2c8b-fdaffab2d746
-# ╟─405d7a7e-e7c2-11ed-04f0-a9aa58829917
-# ╠═405d7a9e-e7c2-11ed-208f-2777dfc32849
-# ╟─405d7ac6-e7c2-11ed-0e9b-55e18e65e2f9
-# ╟─405d7aee-e7c2-11ed-3386-9bd080234e5e
-# ╟─405d7b54-e7c2-11ed-1ea3-49a80e847000
-# ╟─405d7b66-e7c2-11ed-06e5-4100d7902a80
-# ╟─405d7b98-e7c2-11ed-1467-a910e7883910
-# ╟─405d7be6-e7c2-11ed-1546-535771bd2321
-# ╠═405d7bf2-e7c2-11ed-06f6-9163c7184c2b
-# ╟─405d7c06-e7c2-11ed-2295-95ff8812ce50
-# ╠═405d7c10-e7c2-11ed-3a50-03b6d9c1cf0f
-# ╟─405d7c4c-e7c2-11ed-17bb-1f90dbdcfa04
-# ╟─405d7cc4-e7c2-11ed-34c8-afaee98ae8e7
+# ╟─b9b3249e-e7c3-11ed-00f1-0fd22dc087a8
+# ╠═b9b3256e-e7c3-11ed-1f82-0f881b2d55d9
+# ╠═b9b325aa-e7c3-11ed-3e74-5b1edac5cbc8
+# ╟─b9b3271c-e7c3-11ed-2f4d-63bd2cc1e217
+# ╟─b9b327a8-e7c3-11ed-3571-5b9c237220e6
+# ╟─b9b32800-e7c3-11ed-0114-cd372bf44813
+# ╟─b9b328f2-e7c3-11ed-3942-1d001b6eff20
+# ╠═b9b328fc-e7c3-11ed-15d2-e3446c5264dd
+# ╟─b9b32988-e7c3-11ed-02d0-87a15e466482
+# ╟─b9b329a6-e7c3-11ed-210d-b5b311d2210d
+# ╠═b9b329ce-e7c3-11ed-3bf1-7f2dc364a67b
+# ╟─b9b329f6-e7c3-11ed-112e-c948b804ab4b
+# ╟─b9b32a28-e7c3-11ed-22d3-1b67f264ec5b
+# ╟─b9b32a82-e7c3-11ed-3eea-bf1c0e01e1d1
+# ╟─b9b32a9e-e7c3-11ed-3415-8305206bfbc8
+# ╟─b9b32ad0-e7c3-11ed-23ff-e766cd1fade4
+# ╟─b9b32b22-e7c3-11ed-0f61-77cf134f43d0
+# ╠═b9b32b2c-e7c3-11ed-2967-e5629c061377
+# ╟─b9b32b42-e7c3-11ed-22a0-01ebc7b39cd7
+# ╠═b9b32b4a-e7c3-11ed-3c8a-c70ef407dc9f
+# ╟─b9b32b86-e7c3-11ed-16bb-cd91d2e05be3
+# ╟─b9b32bf4-e7c3-11ed-13fb-6bb837e94497
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002

@@ -193,18 +193,18 @@ where the vector $r$ consist of remainder terms from Taylor's theorem
 with remainder.  If the gradient is Lipschitz with constant $M$, then
 the terms satisfy
 \[
-  r_i \leq M \|x_i-x_0\|^2 \leq M d^2
+  r_i \leq M \|x_i-x_0\|^2 \leq M d^2/2
 \]
 where $d$ is the diameter of the simplex.  Therefore, we expect
 \[
   \|\hat{\nabla} f(x_0) - \nabla f(x_0)\| \leq 
-  \|A^{-1} r\| \leq \|(A/d)^{-1}\| Md
+  \|A^{-1} r\| \leq \|(A/d)^{-1}\| Md/2
 \]
 where $\|(A/d)^{-1}\|$ is scaled so that only the geometry of the simplex
 matters.  Alternately, we have the relative error bound
 \[
   \frac{\|\hat{\nabla} f(x_0) - \nabla f(x_0)\|}{\|\nabla f(x_0)\|} \leq 
-  \kappa(A) \frac{Md}{\|y\|/d}
+  \kappa(A) \frac{Md}{2\|y\|/d}
 \]
 However we write the bounds, a key aspect to these methods is ensuring
 that the computation of the affine function from the simplex remains
