@@ -532,6 +532,7 @@
 -
   date: 2023-05-05
   info: Review
+  notes: review.pdf
   hw:
     - info: HW 6 due
       file: hw6.html
@@ -542,5 +543,4 @@
 -
   date: 2023-05-08
   info: Review
-  hw:
-    - info: Proj due (5223)
+  notes: review.pdf
