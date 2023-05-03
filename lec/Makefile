@@ -38,7 +38,8 @@ LEC= \
 	pdf/2023-04-24.pdf \
 	pdf/2023-04-26.pdf \
 	pdf/2023-04-28.pdf \
-	pdf/2023-05-01.pdf 
+	pdf/2023-05-01.pdf \
+	pdf/2023-05-03.pdf 
 
 PLUTO= \
 	pluto/2023-01-23.jl \

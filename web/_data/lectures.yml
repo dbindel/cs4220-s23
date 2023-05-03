@@ -525,6 +525,10 @@
 -
   date: 2023-05-03
   info: Stochastic optimizers
+  notes: 2023-05-03.pdf
+  hw:
+    - info: Class problem
+      file: 2023-05-03-class.pdf
 -
   date: 2023-05-05
   info: Review
