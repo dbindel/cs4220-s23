@@ -534,6 +534,8 @@
   info: Review
   notes: review.pdf
   hw:
+    - info: Class problem
+      file: 2023-05-05-class.pdf
     - info: HW 6 due
       file: hw6.html
 #
@@ -544,3 +546,6 @@
   date: 2023-05-08
   info: Review
   notes: review.pdf
+  hw:
+    - info: Class problem
+      file: 2023-05-08-class.pdf
