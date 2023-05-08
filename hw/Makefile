@@ -42,7 +42,8 @@ CLASS_HW=\
 	pdf/2023-05-03-class.pdf \
 	pdf/2023-05-05-class.pdf \
 	pdf/2023-05-08-class.pdf \
-	pdf/proj-5223.pdf
+	pdf/proj-5223.pdf \
+	pdf/final.pdf
 
 HW=$(CLASS_HW) \
 	pluto/hw1.jl html/hw1.html \
@@ -54,14 +55,14 @@ HW=$(CLASS_HW) \
 	pluto/proj2.jl html/proj2.html \
 	pluto/hw5.jl html/hw5.html \
 	pluto/proj3.jl html/proj3.html \
-	pluto/hw6.jl html/hw6.html 
+	pluto/hw6.jl html/hw6.html \
+	pluto/final.jl html/final.html 
 
 .PHONY: all copy
 all: $(HW)
 
-pdf/%.pdf: tex/%.tex | pdf
-	xelatex -output-dir pdf $<
-	xelatex -output-dir pdf $<
+pdf/%.pdf: tex/%.tex
+	latexmk --shell-escape -lualatex -outdir=pdf $<
 
 pdf: 
 	@mkdir -p pdf

@@ -43,7 +43,9 @@
   text: HW 6
   due: 2023-05-05
   pluto: hw6
-#-
-#  text: Final
-#  due: 2023-05-18
-#  pluto: final
+-
+  text: Final
+  due: 2023-05-15
+  pluto: final
+  files:
+    - final.pdf
