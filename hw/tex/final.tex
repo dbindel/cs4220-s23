@@ -282,9 +282,9 @@ We also provide the code to report the numbers and plots that we want!
 let
     resids = []
     monitor(θ, μ, rnorm) = push!(resids, rnorm)
-    θ01 = linkage_θ(0.01)
-    θ10 = linkage_θ(0.10)
-    θ25 = linkage_θ(0.25, monitor=monitor)
+    θ01, rnorm01 = linkage_θ(0.01)
+    θ10, rnorm10 = linkage_θ(0.10)
+    θ25, rnorm25 = linkage_θ(0.25, monitor=monitor)
     p1 = plot(resids, xlabel="k", ylabel="resid norm", yscale=:log10)
 md"""
 $p1
@@ -447,13 +447,13 @@ let
     p2 = plot(resids, yscale=:log10)
 
 md"""
+- Bisection final interval: [$sa, $sb]
+- Maximum $s$ in continuation: $smax
+- Gauss-Newton converged to s = $sc, λ = $λc
+
 $p1
 
 $p2
-
-- Bisection final interval: [$sa, $sb]
-- Maximum $s$ in continuation: $smax
-- Gauss-Newton converged to s=$sc, λ=$λc
 """
 end
 \end{minted}

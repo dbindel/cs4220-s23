@@ -4,18 +4,18 @@
 using Markdown
 using InteractiveUtils
 
-# ╔═╡ 04ec9f26-edee-11ed-2797-9989521ce513
+# ╔═╡ 78806d3c-edfb-11ed-3789-3fac15dd2217
 using LinearAlgebra
 
-# ╔═╡ 04ec9f62-edee-11ed-2c40-7d087b71d15d
+# ╔═╡ 78806d6e-edfb-11ed-1644-9fa94178df64
 using Plots
 
-# ╔═╡ 04ec9e5e-edee-11ed-0c9e-858ad5682a0a
+# ╔═╡ 78806c6c-edfb-11ed-1c24-5bc17f1338f6
 md"""
 # Final exam
 """
 
-# ╔═╡ 04ec9f8a-edee-11ed-09c9-5f96e5c2492f
+# ╔═╡ 78806d98-edfb-11ed-0662-13efcfcf8dc6
 md"""
 You should be able to solve this exam using only the course notes and previous
 assignments, but you are welcome to consult any resource you wish except for
@@ -27,7 +27,7 @@ Please indicate which four of the remaining five problems you want graded
 (we will *not* grade all five and take the best).
 """
 
-# ╔═╡ 04ec9fee-edee-11ed-1cb2-3d99b7228aa6
+# ╔═╡ 78806dfc-edfb-11ed-2251-fddc5ef38957
 md"""
 ## Snacks
 
@@ -44,20 +44,20 @@ md"""
    guess $(x,y) = (1,1)$.  Report your results to at least ten digits.
 """
 
-# ╔═╡ 04ec9ff8-edee-11ed-2072-8dad3a828c10
+# ╔═╡ 78806e12-edfb-11ed-055e-31dd7bcd1463
 md"""
 ##### Answer
 
 """
 
-# ╔═╡ 04eca002-edee-11ed-3e3b-8d10c7529087
+# ╔═╡ 78806e1a-edfb-11ed-1f2a-e7a643deab2d
 let
     xy = [1.0; 1.0]
     # TODO: Fill in Newton iteration for 1.5
     xy
 end
 
-# ╔═╡ 04eca0c0-edee-11ed-033e-5dbd81f8bfa7
+# ╔═╡ 78806ed6-edfb-11ed-1a1b-adcec89c2770
 md"""
 ## Interesting iterations
 
@@ -87,19 +87,19 @@ $$we^w = s.$$
    to at least ten digits.
 """
 
-# ╔═╡ 04eca0e6-edee-11ed-0b8a-c382cfae9c6a
+# ╔═╡ 78806f00-edfb-11ed-13fd-0784f8000a63
 md"""
 ##### Answer
 
 """
 
-# ╔═╡ 04eca0f2-edee-11ed-3d6c-13eb6d5a1d82
+# ╔═╡ 78806f0a-edfb-11ed-1624-f583ce454985
 function bracket_w(s)
     # TODO: Rewrite this to avoid error for small s
     log((1+sqrt(1+4*s))/2), log(1+s)
 end
 
-# ╔═╡ 04eca0fc-edee-11ed-3140-d3a8a4a4cc02
+# ╔═╡ 78806f14-edfb-11ed-3520-5185c7f3d3bd
 function compute_w(s)
     l, u = bracket_w(s)
     w = (l+u)/2
@@ -115,13 +115,13 @@ function compute_w(s)
     w, dw
 end
 
-# ╔═╡ 04eca110-edee-11ed-12be-c1812b98752f
+# ╔═╡ 78806f50-edfb-11ed-107b-cdf93298afad
 md"""
 We provide sanity checks for the bracketing behavior at small $s$ and
 for the correctness of the derivative calculation.
 """
 
-# ╔═╡ 04eca118-edee-11ed-3c8b-930356f131a6
+# ╔═╡ 78806f5a-edfb-11ed-1890-4f87075d3828
 let
     s = 1e-16
     l, u = bracket_w(s)
@@ -136,7 +136,7 @@ Bracket $bracket: $w ∈ [ $l, $u ]
 """
 end
 
-# ╔═╡ 04eca124-edee-11ed-02b2-d71a4c288638
+# ╔═╡ 78806f64-edfb-11ed-3e22-2755da82abb4
 let
     s = 1.35
     h = 1e-6
@@ -150,7 +150,7 @@ Relative error in dw: $relerr
 """
 end
 
-# ╔═╡ 04eca17e-edee-11ed-2b8d-bdb2f95bdddb
+# ╔═╡ 78806fb4-edfb-11ed-2dfa-37eeb71f5677
 md"""
 ## Quirky quadratics
 
@@ -170,20 +170,20 @@ $$\phi(x) = \frac{1}{2} x^T H x - x^T d + g(c^T x).$$
    you should use a minimal number of linear solves with $H$.
 """
 
-# ╔═╡ 04eca188-edee-11ed-0a1f-afd90a1ef394
+# ╔═╡ 78806fbe-edfb-11ed-3b48-ddd2728768d2
 md"""
 ##### Answer
 
 """
 
-# ╔═╡ 04eca192-edee-11ed-38f9-31262c463958
+# ╔═╡ 78806fc8-edfb-11ed-31ee-8d0c09a2f5be
 function p3newton(γ, H, c, d, dg, Hg;
                   rtol=1e-12, monitor=(γ, r)->nothing)
     # TODO: Newton to solve for γ to resid < rtol (also form x)
     γ, x
 end
 
-# ╔═╡ 04eca19c-edee-11ed-3454-c769e4391f00
+# ╔═╡ 78806fd2-edfb-11ed-088a-97c3dd337aba
 let
     H = [1.5  6.0   1.0  6.5   3.0;
          6.0  6.5   8.0  4.75  7.5;
@@ -203,7 +203,7 @@ let
     # RECOMMENDED CHECKS: Form the residual + plot quadratic conv
 end
 
-# ╔═╡ 04eca25a-edee-11ed-1bf0-2f968c721847
+# ╔═╡ 78807086-edfb-11ed-3040-f35bed5163cd
 md"""
 ## Block GS
 
@@ -240,13 +240,13 @@ $$\begin{align*}
    $M_u M_w < \sigma_{min}(D) \sigma_{\min}(A)$.
 """
 
-# ╔═╡ 04eca26e-edee-11ed-2adf-bbf7cce49180
+# ╔═╡ 788070b0-edfb-11ed-363a-491932c22a2c
 md"""
 ##### Answer
 
 """
 
-# ╔═╡ 04eca304-edee-11ed-1463-b7531d3effaf
+# ╔═╡ 78807142-edfb-11ed-05f6-ad7587662ffd
 md"""
 ## Lolling linkages
 
@@ -276,30 +276,30 @@ $$\mbox{minimize } 3 \sin(\theta_1) + \sin(\theta_2)
    additional equation $y = \sin(\theta_1) + \sin(\theta_2)$.
 """
 
-# ╔═╡ 04eca30e-edee-11ed-1cd2-4fa82ffd7c82
+# ╔═╡ 7880714e-edfb-11ed-284d-e15fccea0a58
 md"""
 ##### Answer
 
 """
 
-# ╔═╡ 04eca318-edee-11ed-1148-1960375d3480
+# ╔═╡ 78807158-edfb-11ed-39e5-5d6e1668d749
 function linkage_θ(δ; rtol=1e-10, monitor=(θ, μ, rnorm)->nothing)
     # TODO: Fill in Newton iteration to compute angles for given δ
     #   Return θ vector and a residual norm for the tester    
 end
 
-# ╔═╡ 04eca324-edee-11ed-359c-415f921a66da
+# ╔═╡ 78807162-edfb-11ed-3ebc-cda8bec86064
 function linkage_δ(y; rtol=1e-10, monitor=(θ, μ, δ, rnorm)->nothing)
     # TODO: Fill in Newton iteration to compute δ for given y
     #   Return δ and a residual norm for the tester
 end
 
-# ╔═╡ 04eca336-edee-11ed-037e-9d2050bdb76e
+# ╔═╡ 78807180-edfb-11ed-209e-79a8d27ef50a
 md"""
 We provide a consistency check for part 3.
 """
 
-# ╔═╡ 04eca340-edee-11ed-0be8-873ef307c1be
+# ╔═╡ 7880718a-edfb-11ed-33ea-674c487ead3e
 let
     δref = 0.01
     θ, rnormθ = linkage_θ(δref)
@@ -310,18 +310,18 @@ Relative error in recovering δ: $(relerr_δ)
 """
 end
 
-# ╔═╡ 04eca356-edee-11ed-2aed-d7c8a8a26a9d
+# ╔═╡ 7880719e-edfb-11ed-13bf-f9ccfb421b0c
 md"""
 We also provide the code to report the numbers and plots that we want!
 """
 
-# ╔═╡ 04eca356-edee-11ed-0434-01ee0e264c22
+# ╔═╡ 788071a6-edfb-11ed-095b-2bfe96ab15b9
 let
     resids = []
     monitor(θ, μ, rnorm) = push!(resids, rnorm)
-    θ01 = linkage_θ(0.01)
-    θ10 = linkage_θ(0.10)
-    θ25 = linkage_θ(0.25, monitor=monitor)
+    θ01, rnorm01 = linkage_θ(0.01)
+    θ10, rnorm10 = linkage_θ(0.10)
+    θ25, rnorm25 = linkage_θ(0.25, monitor=monitor)
     p1 = plot(resids, xlabel="k", ylabel="resid norm", yscale=:log10)
 md"""
 $p1
@@ -334,7 +334,7 @@ Converged angles:
 """
 end
 
-# ╔═╡ 04eca3e8-edee-11ed-1316-97a7828d6868
+# ╔═╡ 7880723e-edfb-11ed-28da-d5cff5920caa
 md"""
 ## Double trouble
 
@@ -365,20 +365,20 @@ analysis codes that can help.
    by the previous equation.
 """
 
-# ╔═╡ 04eca3fe-edee-11ed-07fc-53f4744feb49
+# ╔═╡ 78807252-edfb-11ed-1e8b-c1622488741e
 md"""
 ##### Answer
 
 """
 
-# ╔═╡ 04eca408-edee-11ed-172b-4dd8db63bc67
+# ╔═╡ 7880725c-edfb-11ed-13e8-5f471ea0efc7
 function p6bisection(G)
     g(s) = all(isreal.(eigvals(G(s))))
     a, b = 0.0, 1.0
     a, b
 end
 
-# ╔═╡ 04eca412-edee-11ed-2e7f-5d13cbd88c4e
+# ╔═╡ 78807266-edfb-11ed-0f41-29738468d8c2
 function p6continuation(G, A, B, λ0)
     n = size(A)[1]
     
@@ -422,7 +422,7 @@ function p6continuation(G, A, B, λ0)
     srecord, λrecord
 end
 
-# ╔═╡ 04eca41c-edee-11ed-0240-191c409c3ea8
+# ╔═╡ 7880727c-edfb-11ed-3070-695c02aafc7f
 function p6gnsolver(G, A, B, V0, s0, λ0; rtol=1e-10,
                     monitor=(V, s, λ, rnorm)->nothing)
     n = size(V0)[1]
@@ -435,7 +435,7 @@ function p6gnsolver(G, A, B, V0, s0, λ0; rtol=1e-10,
     V, s, λ
 end
 
-# ╔═╡ 04eca426-edee-11ed-075a-579d6ce60eeb
+# ╔═╡ 7880727c-edfb-11ed-023a-115f067e9361
 function p6subspace(G, s, λ)
     F = G(s)-λ*I
     V0 = qr(randn(4,2)).Q[:,1:2]
@@ -445,7 +445,7 @@ function p6subspace(G, s, λ)
     V0
 end
 
-# ╔═╡ 04eca430-edee-11ed-30eb-875a1384bd12
+# ╔═╡ 78807284-edfb-11ed-1543-a38c065365c5
 let
     A = [ 3.0  6.0  2.0  1.0;
           6.0  3.0  2.5  6.5;
@@ -478,7 +478,7 @@ let
 md"""
 - Bisection final interval: [$sa, $sb]
 - Maximum $s$ in continuation: $smax
-- Gauss-Newton converged to s=$sc, λ=$λc
+- Gauss-Newton converged to s = $sc, λ = $λc
 
 $p1
 
@@ -1430,40 +1430,40 @@ version = "1.4.1+0"
 """
 
 # ╔═╡ Cell order:
-# ╟─04ec9e5e-edee-11ed-0c9e-858ad5682a0a
-# ╠═04ec9f26-edee-11ed-2797-9989521ce513
-# ╠═04ec9f62-edee-11ed-2c40-7d087b71d15d
-# ╟─04ec9f8a-edee-11ed-09c9-5f96e5c2492f
-# ╟─04ec9fee-edee-11ed-1cb2-3d99b7228aa6
-# ╟─04ec9ff8-edee-11ed-2072-8dad3a828c10
-# ╠═04eca002-edee-11ed-3e3b-8d10c7529087
-# ╟─04eca0c0-edee-11ed-033e-5dbd81f8bfa7
-# ╟─04eca0e6-edee-11ed-0b8a-c382cfae9c6a
-# ╠═04eca0f2-edee-11ed-3d6c-13eb6d5a1d82
-# ╠═04eca0fc-edee-11ed-3140-d3a8a4a4cc02
-# ╟─04eca110-edee-11ed-12be-c1812b98752f
-# ╠═04eca118-edee-11ed-3c8b-930356f131a6
-# ╠═04eca124-edee-11ed-02b2-d71a4c288638
-# ╟─04eca17e-edee-11ed-2b8d-bdb2f95bdddb
-# ╟─04eca188-edee-11ed-0a1f-afd90a1ef394
-# ╠═04eca192-edee-11ed-38f9-31262c463958
-# ╠═04eca19c-edee-11ed-3454-c769e4391f00
-# ╟─04eca25a-edee-11ed-1bf0-2f968c721847
-# ╟─04eca26e-edee-11ed-2adf-bbf7cce49180
-# ╟─04eca304-edee-11ed-1463-b7531d3effaf
-# ╟─04eca30e-edee-11ed-1cd2-4fa82ffd7c82
-# ╠═04eca318-edee-11ed-1148-1960375d3480
-# ╠═04eca324-edee-11ed-359c-415f921a66da
-# ╟─04eca336-edee-11ed-037e-9d2050bdb76e
-# ╠═04eca340-edee-11ed-0be8-873ef307c1be
-# ╟─04eca356-edee-11ed-2aed-d7c8a8a26a9d
-# ╠═04eca356-edee-11ed-0434-01ee0e264c22
-# ╟─04eca3e8-edee-11ed-1316-97a7828d6868
-# ╟─04eca3fe-edee-11ed-07fc-53f4744feb49
-# ╠═04eca408-edee-11ed-172b-4dd8db63bc67
-# ╠═04eca412-edee-11ed-2e7f-5d13cbd88c4e
-# ╠═04eca41c-edee-11ed-0240-191c409c3ea8
-# ╠═04eca426-edee-11ed-075a-579d6ce60eeb
-# ╠═04eca430-edee-11ed-30eb-875a1384bd12
+# ╟─78806c6c-edfb-11ed-1c24-5bc17f1338f6
+# ╠═78806d3c-edfb-11ed-3789-3fac15dd2217
+# ╠═78806d6e-edfb-11ed-1644-9fa94178df64
+# ╟─78806d98-edfb-11ed-0662-13efcfcf8dc6
+# ╟─78806dfc-edfb-11ed-2251-fddc5ef38957
+# ╟─78806e12-edfb-11ed-055e-31dd7bcd1463
+# ╠═78806e1a-edfb-11ed-1f2a-e7a643deab2d
+# ╟─78806ed6-edfb-11ed-1a1b-adcec89c2770
+# ╟─78806f00-edfb-11ed-13fd-0784f8000a63
+# ╠═78806f0a-edfb-11ed-1624-f583ce454985
+# ╠═78806f14-edfb-11ed-3520-5185c7f3d3bd
+# ╟─78806f50-edfb-11ed-107b-cdf93298afad
+# ╠═78806f5a-edfb-11ed-1890-4f87075d3828
+# ╠═78806f64-edfb-11ed-3e22-2755da82abb4
+# ╟─78806fb4-edfb-11ed-2dfa-37eeb71f5677
+# ╟─78806fbe-edfb-11ed-3b48-ddd2728768d2
+# ╠═78806fc8-edfb-11ed-31ee-8d0c09a2f5be
+# ╠═78806fd2-edfb-11ed-088a-97c3dd337aba
+# ╟─78807086-edfb-11ed-3040-f35bed5163cd
+# ╟─788070b0-edfb-11ed-363a-491932c22a2c
+# ╟─78807142-edfb-11ed-05f6-ad7587662ffd
+# ╟─7880714e-edfb-11ed-284d-e15fccea0a58
+# ╠═78807158-edfb-11ed-39e5-5d6e1668d749
+# ╠═78807162-edfb-11ed-3ebc-cda8bec86064
+# ╟─78807180-edfb-11ed-209e-79a8d27ef50a
+# ╠═7880718a-edfb-11ed-33ea-674c487ead3e
+# ╟─7880719e-edfb-11ed-13bf-f9ccfb421b0c
+# ╠═788071a6-edfb-11ed-095b-2bfe96ab15b9
+# ╟─7880723e-edfb-11ed-28da-d5cff5920caa
+# ╟─78807252-edfb-11ed-1e8b-c1622488741e
+# ╠═7880725c-edfb-11ed-13e8-5f471ea0efc7
+# ╠═78807266-edfb-11ed-0f41-29738468d8c2
+# ╠═7880727c-edfb-11ed-3070-695c02aafc7f
+# ╠═7880727c-edfb-11ed-023a-115f067e9361
+# ╠═78807284-edfb-11ed-1543-a38c065365c5
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002

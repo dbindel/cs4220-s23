@@ -58,7 +58,7 @@ HW=$(CLASS_HW) \
 	pluto/hw6.jl html/hw6.html \
 	pluto/final.jl html/final.html 
 
-.PHONY: all copy
+.PHONY: all copy pdf clean distclean
 all: $(HW)
 
 pdf/%.pdf: tex/%.tex
