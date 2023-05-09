@@ -38,9 +38,9 @@ want graded (we will \emph{not} grade all five and take the best).
   (1 pt) Give an example 1D optimization problem where Newton iteration
   converges linearly (not quadratically) to a minimum. Explain.
 \item
-  (1 pt) Given \texttt{F\ =\ chol(A)} for spd \(A\), give a Julia code
-  fragment to evaluate \(e_n^T A^{-1} e_n = (A^{-1})_{nn}\) in \(O(1)\)
-  time.
+  (1 pt) Given \texttt{F\ =\ cholesky(A)} for spd
+  \(A \in \mathbb{R}^{n \times n}\), give a Julia code fragment to
+  evaluate \(e_n^T A^{-1} e_n = (A^{-1})_{nn}\) in \(O(1)\) time.
 \item
   (1 pt) Using Newton iteration, solve the simultaneous equations
   \(x^2 + xy^2 = 9\) and \(3x^2 y - y^3 = 4\). You may use the initial
@@ -48,6 +48,20 @@ want graded (we will \emph{not} grade all five and take the best).
 \end{enumerate}
 
 \paragraph{Answer}
+
+\begin{minted}{julia}
+let
+    A = [1.5  6.0   1.0  6.5   3.0;
+         6.0  6.5   8.0  4.75  7.5;
+         1.0  8.0   4.5  7.5   5.5;
+         6.5  4.75  7.5  8.0   5.25;
+         3.0  7.5   5.5  5.25  3.0]
+    F = cholesky(A)
+    invAnn_ref = inv(A)[n,n]
+    invAnn_fast = 0.0        # TODO: Replace
+    abs(invAnn_ref-invAnn_fast)/abs(invAnn_ref)
+end
+\end{minted}
 
 \begin{minted}{julia}
 let
@@ -59,7 +73,8 @@ end
 
 \section{Interesting iterations}
 
-Consider the function \(w(s)\) defined by the equation \[we^w = s.\]
+Consider the function \(w(s)\) defined by the scalar equation
+\[we^w = s.\]
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -122,8 +137,11 @@ for the correctness of the derivative calculation.
 
 \section{Quirky quadratics}
 
-Consider the almost-quadratic optimization problem of minimizing
-\[\phi(x) = \frac{1}{2} x^T H x - x^T d + g(c^T x).\]
+Consider the almost-quadratic optimization problem of minimizing (or
+finding a stationary point of)
+\[\phi(x) = \frac{1}{2} x^T H x - x^T d + g(c^T x).\] Here
+\(H \in \mathbb{R}^{n \times n}\), \(x, c, d \in \mathbb{R}^n\), and
+\(g : \mathbb{R} \rightarrow \mathbb{R}\).
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
