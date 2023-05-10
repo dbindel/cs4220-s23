@@ -4,18 +4,18 @@
 using Markdown
 using InteractiveUtils
 
-# ╔═╡ 9c862cf2-ee9e-11ed-1c50-4318ce244ec8
+# ╔═╡ 767dc96a-ef35-11ed-0ff3-61809ca39fac
 using LinearAlgebra
 
-# ╔═╡ 9c862d24-ee9e-11ed-157a-e3389879955d
+# ╔═╡ 767dc9a6-ef35-11ed-2a31-8fcee3b00b31
 using Plots
 
-# ╔═╡ 9c862c16-ee9e-11ed-18b0-479e348db40b
+# ╔═╡ 767dc8a2-ef35-11ed-377a-f5a92a39cf30
 md"""
 # Final exam
 """
 
-# ╔═╡ 9c862d6a-ee9e-11ed-3d85-db17be315fff
+# ╔═╡ 767dc9ec-ef35-11ed-3c67-37f181b13d1a
 md"""
 You should be able to solve this exam using only the course notes and previous
 assignments, but you are welcome to consult any resource you wish except for
@@ -27,7 +27,7 @@ Please indicate which four of the remaining five problems you want graded
 (we will *not* grade all five and take the best).
 """
 
-# ╔═╡ 9c862dce-ee9e-11ed-184a-bb5eec95b2f2
+# ╔═╡ 767dca50-ef35-11ed-0f4b-35ac87557349
 md"""
 ## Snacks
 
@@ -45,13 +45,13 @@ md"""
    guess $(x,y) = (1,1)$.  Report your results to at least ten digits.
 """
 
-# ╔═╡ 9c862de2-ee9e-11ed-0207-d5374fe167c7
+# ╔═╡ 767dca64-ef35-11ed-3e58-279405cf1bbd
 md"""
 ##### Answer
 
 """
 
-# ╔═╡ 9c862df6-ee9e-11ed-0815-219df8428b89
+# ╔═╡ 767dca6e-ef35-11ed-1d97-33e124d69294
 let
     A = [11.5   6.0    1.0   6.5    3.0;
           6.0  16.5    8.0   4.75   7.5;
@@ -64,14 +64,14 @@ let
     abs(invAnn_ref-invAnn_fast)/abs(invAnn_ref)
 end
 
-# ╔═╡ 9c862e00-ee9e-11ed-050f-a94a68d39d8d
+# ╔═╡ 767dca78-ef35-11ed-079e-ed31cc30d93b
 let
     xy = [1.0; 1.0]
     # TODO: Fill in Newton iteration for 1.5
     xy
 end
 
-# ╔═╡ 9c862ea0-ee9e-11ed-3a7c-a326ee09390b
+# ╔═╡ 767dcb0e-ef35-11ed-1375-2beb0ea00b68
 md"""
 ## Interesting iterations
 
@@ -101,19 +101,19 @@ $$we^w = s.$$
    to at least ten digits.
 """
 
-# ╔═╡ 9c862eac-ee9e-11ed-3d62-fdcdab7ed2a4
+# ╔═╡ 767dcb20-ef35-11ed-197d-dba6afb0eff3
 md"""
 ##### Answer
 
 """
 
-# ╔═╡ 9c862eb4-ee9e-11ed-3891-b3715e2dedaf
+# ╔═╡ 767dcb2c-ef35-11ed-18ec-9be40816c6b9
 function bracket_w(s)
     # TODO: Rewrite this to avoid error for small s
     log((1+sqrt(1+4*s))/2), log(1+s)
 end
 
-# ╔═╡ 9c862ebe-ee9e-11ed-0982-8d509f8a9448
+# ╔═╡ 767dcb36-ef35-11ed-202a-9b11d03defb3
 function compute_w(s)
     l, u = bracket_w(s)
     w = (l+u)/2
@@ -129,13 +129,13 @@ function compute_w(s)
     w, dw
 end
 
-# ╔═╡ 9c862ed2-ee9e-11ed-25dc-43c783d03790
+# ╔═╡ 767dcb4a-ef35-11ed-3743-6d41ed5a0757
 md"""
 We provide sanity checks for the bracketing behavior at small $s$ and
 for the correctness of the derivative calculation.
 """
 
-# ╔═╡ 9c862ede-ee9e-11ed-0d4f-e533b2913b92
+# ╔═╡ 767dcb54-ef35-11ed-229e-f941fdaf8e2f
 let
     s = 1e-16
     l, u = bracket_w(s)
@@ -150,7 +150,7 @@ Bracket $bracket: $w ∈ [ $l, $u ]
 """
 end
 
-# ╔═╡ 9c862efa-ee9e-11ed-26df-8964d81eb9d5
+# ╔═╡ 767dcb68-ef35-11ed-2663-01fb83bd5b14
 let
     s = 1.35
     h = 1e-6
@@ -164,7 +164,7 @@ Relative error in dw: $relerr
 """
 end
 
-# ╔═╡ 9c862f54-ee9e-11ed-1106-3bd2730cea44
+# ╔═╡ 767dcbcc-ef35-11ed-00f6-ef3f2838d26d
 md"""
 ## Quirky quadratics
 
@@ -187,20 +187,20 @@ and $g : \mathbb{R} \rightarrow \mathbb{R}$.
    you should use a minimal number of linear solves with $H$.
 """
 
-# ╔═╡ 9c862f68-ee9e-11ed-27b2-71236285eb2a
+# ╔═╡ 767dcbd6-ef35-11ed-069a-432122d77410
 md"""
 ##### Answer
 
 """
 
-# ╔═╡ 9c862f70-ee9e-11ed-150b-df885728fa30
+# ╔═╡ 767dcbe0-ef35-11ed-3c48-3b9b58ce6d95
 function p3newton(γ, H, c, d, dg, Hg;
                   rtol=1e-12, monitor=(γ, r)->nothing)
     # TODO: Newton to solve for γ to resid < rtol (also form x)
     γ, x
 end
 
-# ╔═╡ 9c862f7c-ee9e-11ed-0286-c516ee650951
+# ╔═╡ 767dcbea-ef35-11ed-1e53-8729fc7929ac
 let
     H = [1.5  6.0   1.0  6.5   3.0;
          6.0  6.5   8.0  4.75  7.5;
@@ -220,7 +220,7 @@ let
     # RECOMMENDED CHECKS: Form the residual + plot quadratic conv
 end
 
-# ╔═╡ 9c86303a-ee9e-11ed-39d4-eb5be0f7bd0c
+# ╔═╡ 767dcca8-ef35-11ed-0cde-2df7742745a3
 md"""
 ## Block GS
 
@@ -257,13 +257,13 @@ $$\begin{align*}
    $M_u M_w < \sigma_{min}(D) \sigma_{\min}(A)$.
 """
 
-# ╔═╡ 9c863046-ee9e-11ed-2831-5192c95ef7bc
+# ╔═╡ 767dccb2-ef35-11ed-23f7-39a8922fccc2
 md"""
 ##### Answer
 
 """
 
-# ╔═╡ 9c8630d8-ee9e-11ed-0c8d-f59f67ed99d4
+# ╔═╡ 767dcd52-ef35-11ed-1ec4-736bb9084b95
 md"""
 ## Lolling linkages
 
@@ -293,30 +293,30 @@ $$\mbox{minimize } 3 \sin(\theta_1) + \sin(\theta_2)
    additional equation $y = \sin(\theta_1) + \sin(\theta_2)$.
 """
 
-# ╔═╡ 9c8630ee-ee9e-11ed-09af-ebac193d0094
+# ╔═╡ 767dcd5e-ef35-11ed-0014-81c8bcdea45b
 md"""
 ##### Answer
 
 """
 
-# ╔═╡ 9c8630f8-ee9e-11ed-022c-5dec8b95acdf
+# ╔═╡ 767dcd66-ef35-11ed-1461-5dc44be3eff1
 function linkage_θ(δ; rtol=1e-10, monitor=(θ, μ, rnorm)->nothing)
     # TODO: Fill in Newton iteration to compute angles for given δ
     #   Return θ vector and a residual norm for the tester    
 end
 
-# ╔═╡ 9c86310c-ee9e-11ed-3b6d-df9dc1be2f0a
+# ╔═╡ 767dcd7a-ef35-11ed-171e-bf5915ed053d
 function linkage_δ(y; rtol=1e-10, monitor=(θ, μ, δ, rnorm)->nothing)
     # TODO: Fill in Newton iteration to compute δ for given y
     #   Return δ and a residual norm for the tester
 end
 
-# ╔═╡ 9c863120-ee9e-11ed-28d7-f14dbe4e7fba
+# ╔═╡ 767dcd8c-ef35-11ed-3f7b-d97170bb580e
 md"""
 We provide a consistency check for part 3.
 """
 
-# ╔═╡ 9c86312a-ee9e-11ed-29aa-a112b13466ea
+# ╔═╡ 767dcd98-ef35-11ed-243e-e3bc670d2fda
 let
     δref = 0.01
     θ, rnormθ = linkage_θ(δref)
@@ -327,12 +327,12 @@ Relative error in recovering δ: $(relerr_δ)
 """
 end
 
-# ╔═╡ 9c863134-ee9e-11ed-2b40-e104fc7865ca
+# ╔═╡ 767dcda2-ef35-11ed-232b-d7011b42ab7d
 md"""
 We also provide the code to report the numbers and plots that we want!
 """
 
-# ╔═╡ 9c86313e-ee9e-11ed-29f2-9bf0f5f781e1
+# ╔═╡ 767dcdac-ef35-11ed-070e-130627014bb4
 let
     resids = []
     monitor(θ, μ, rnorm) = push!(resids, rnorm)
@@ -351,7 +351,7 @@ Converged angles:
 """
 end
 
-# ╔═╡ 9c8631d4-ee9e-11ed-0a43-1f3a68779761
+# ╔═╡ 767dce4c-ef35-11ed-05d1-01c73bb00e92
 md"""
 ## Double trouble
 
@@ -368,7 +368,7 @@ analysis codes that can help.
    (bracketing interval of length $10^{-3}$).
 2. (3 points) Complete the pseudo-arclength continuation code, trace
    $\lambda(\gamma)$ vs $s(\gamma)$ for $(v(\gamma), \lambda(\gamma)
-   s(\gamma))$ given by $G(s) v = \lambda s$ and $v^T v = 1$.
+   s(\gamma))$ given by $G(s) v = \lambda v$ and $v^T v = 1$.
    Plot the resulting curve.  What is the maximum value of $s$ you see?
 3. (4 points) Write a Gauss-Newton iteration to solve the nonlinear
    equations $(G(s)-\lambda I)^2 V = 0$ and $V_0^T V = I$, which
@@ -382,20 +382,20 @@ analysis codes that can help.
    by the previous equation.
 """
 
-# ╔═╡ 9c8631dc-ee9e-11ed-2ce0-b9d1604216d1
+# ╔═╡ 767dce56-ef35-11ed-0ff9-b75040945ffc
 md"""
 ##### Answer
 
 """
 
-# ╔═╡ 9c8631f2-ee9e-11ed-2250-436b6849d18e
+# ╔═╡ 767dce62-ef35-11ed-20d8-bd8ec3192e07
 function p6bisection(G)
     g(s) = all(isreal.(eigvals(G(s))))
     a, b = 0.0, 1.0
     a, b
 end
 
-# ╔═╡ 9c8631fc-ee9e-11ed-2092-05e42604bb82
+# ╔═╡ 767dce6a-ef35-11ed-0a4a-1dbbca39603c
 function p6continuation(G, A, B, λ0)
     n = size(A)[1]
     
@@ -439,7 +439,7 @@ function p6continuation(G, A, B, λ0)
     srecord, λrecord
 end
 
-# ╔═╡ 9c863206-ee9e-11ed-1fcc-fbb895fb2466
+# ╔═╡ 767dce7e-ef35-11ed-155e-7934366aed06
 function p6gnsolver(G, A, B, V0, s0, λ0; rtol=1e-10,
                     monitor=(V, s, λ, rnorm)->nothing)
     n = size(V0)[1]
@@ -452,7 +452,7 @@ function p6gnsolver(G, A, B, V0, s0, λ0; rtol=1e-10,
     V, s, λ
 end
 
-# ╔═╡ 9c86321a-ee9e-11ed-0622-2f104f11069e
+# ╔═╡ 767dce88-ef35-11ed-30e1-39de5023cc08
 function p6subspace(G, s, λ)
     F = G(s)-λ*I
     V0 = qr(randn(4,2)).Q[:,1:2]
@@ -462,7 +462,7 @@ function p6subspace(G, s, λ)
     V0
 end
 
-# ╔═╡ 9c863224-ee9e-11ed-1233-559de518f4a1
+# ╔═╡ 767dce94-ef35-11ed-1395-c5ac6bc81ded
 let
     A = [ 3.0  6.0  2.0  1.0;
           6.0  3.0  2.5  6.5;
@@ -736,9 +736,9 @@ version = "1.0.2"
 
 [[deps.HTTP]]
 deps = ["Base64", "CodecZlib", "ConcurrentUtilities", "Dates", "Logging", "LoggingExtras", "MbedTLS", "NetworkOptions", "OpenSSL", "Random", "SimpleBufferStream", "Sockets", "URIs", "UUIDs"]
-git-tree-sha1 = "69182f9a2d6add3736b7a06ab6416aafdeec2196"
+git-tree-sha1 = "42c6b37c6a2242cb646a1dd5518631db0be9b967"
 uuid = "cd3eb016-35fb-5094-929b-558a96fad6f3"
-version = "1.8.0"
+version = "1.8.1"
 
 [[deps.HarfBuzz_jll]]
 deps = ["Artifacts", "Cairo_jll", "Fontconfig_jll", "FreeType2_jll", "Glib_jll", "Graphite2_jll", "JLLWrappers", "Libdl", "Libffi_jll", "Pkg"]
@@ -1447,41 +1447,41 @@ version = "1.4.1+0"
 """
 
 # ╔═╡ Cell order:
-# ╟─9c862c16-ee9e-11ed-18b0-479e348db40b
-# ╠═9c862cf2-ee9e-11ed-1c50-4318ce244ec8
-# ╠═9c862d24-ee9e-11ed-157a-e3389879955d
-# ╟─9c862d6a-ee9e-11ed-3d85-db17be315fff
-# ╟─9c862dce-ee9e-11ed-184a-bb5eec95b2f2
-# ╟─9c862de2-ee9e-11ed-0207-d5374fe167c7
-# ╠═9c862df6-ee9e-11ed-0815-219df8428b89
-# ╠═9c862e00-ee9e-11ed-050f-a94a68d39d8d
-# ╟─9c862ea0-ee9e-11ed-3a7c-a326ee09390b
-# ╟─9c862eac-ee9e-11ed-3d62-fdcdab7ed2a4
-# ╠═9c862eb4-ee9e-11ed-3891-b3715e2dedaf
-# ╠═9c862ebe-ee9e-11ed-0982-8d509f8a9448
-# ╟─9c862ed2-ee9e-11ed-25dc-43c783d03790
-# ╠═9c862ede-ee9e-11ed-0d4f-e533b2913b92
-# ╠═9c862efa-ee9e-11ed-26df-8964d81eb9d5
-# ╟─9c862f54-ee9e-11ed-1106-3bd2730cea44
-# ╟─9c862f68-ee9e-11ed-27b2-71236285eb2a
-# ╠═9c862f70-ee9e-11ed-150b-df885728fa30
-# ╠═9c862f7c-ee9e-11ed-0286-c516ee650951
-# ╟─9c86303a-ee9e-11ed-39d4-eb5be0f7bd0c
-# ╟─9c863046-ee9e-11ed-2831-5192c95ef7bc
-# ╟─9c8630d8-ee9e-11ed-0c8d-f59f67ed99d4
-# ╟─9c8630ee-ee9e-11ed-09af-ebac193d0094
-# ╠═9c8630f8-ee9e-11ed-022c-5dec8b95acdf
-# ╠═9c86310c-ee9e-11ed-3b6d-df9dc1be2f0a
-# ╟─9c863120-ee9e-11ed-28d7-f14dbe4e7fba
-# ╠═9c86312a-ee9e-11ed-29aa-a112b13466ea
-# ╟─9c863134-ee9e-11ed-2b40-e104fc7865ca
-# ╠═9c86313e-ee9e-11ed-29f2-9bf0f5f781e1
-# ╟─9c8631d4-ee9e-11ed-0a43-1f3a68779761
-# ╟─9c8631dc-ee9e-11ed-2ce0-b9d1604216d1
-# ╠═9c8631f2-ee9e-11ed-2250-436b6849d18e
-# ╠═9c8631fc-ee9e-11ed-2092-05e42604bb82
-# ╠═9c863206-ee9e-11ed-1fcc-fbb895fb2466
-# ╠═9c86321a-ee9e-11ed-0622-2f104f11069e
-# ╠═9c863224-ee9e-11ed-1233-559de518f4a1
+# ╟─767dc8a2-ef35-11ed-377a-f5a92a39cf30
+# ╠═767dc96a-ef35-11ed-0ff3-61809ca39fac
+# ╠═767dc9a6-ef35-11ed-2a31-8fcee3b00b31
+# ╟─767dc9ec-ef35-11ed-3c67-37f181b13d1a
+# ╟─767dca50-ef35-11ed-0f4b-35ac87557349
+# ╟─767dca64-ef35-11ed-3e58-279405cf1bbd
+# ╠═767dca6e-ef35-11ed-1d97-33e124d69294
+# ╠═767dca78-ef35-11ed-079e-ed31cc30d93b
+# ╟─767dcb0e-ef35-11ed-1375-2beb0ea00b68
+# ╟─767dcb20-ef35-11ed-197d-dba6afb0eff3
+# ╠═767dcb2c-ef35-11ed-18ec-9be40816c6b9
+# ╠═767dcb36-ef35-11ed-202a-9b11d03defb3
+# ╟─767dcb4a-ef35-11ed-3743-6d41ed5a0757
+# ╠═767dcb54-ef35-11ed-229e-f941fdaf8e2f
+# ╠═767dcb68-ef35-11ed-2663-01fb83bd5b14
+# ╟─767dcbcc-ef35-11ed-00f6-ef3f2838d26d
+# ╟─767dcbd6-ef35-11ed-069a-432122d77410
+# ╠═767dcbe0-ef35-11ed-3c48-3b9b58ce6d95
+# ╠═767dcbea-ef35-11ed-1e53-8729fc7929ac
+# ╟─767dcca8-ef35-11ed-0cde-2df7742745a3
+# ╟─767dccb2-ef35-11ed-23f7-39a8922fccc2
+# ╟─767dcd52-ef35-11ed-1ec4-736bb9084b95
+# ╟─767dcd5e-ef35-11ed-0014-81c8bcdea45b
+# ╠═767dcd66-ef35-11ed-1461-5dc44be3eff1
+# ╠═767dcd7a-ef35-11ed-171e-bf5915ed053d
+# ╟─767dcd8c-ef35-11ed-3f7b-d97170bb580e
+# ╠═767dcd98-ef35-11ed-243e-e3bc670d2fda
+# ╟─767dcda2-ef35-11ed-232b-d7011b42ab7d
+# ╠═767dcdac-ef35-11ed-070e-130627014bb4
+# ╟─767dce4c-ef35-11ed-05d1-01c73bb00e92
+# ╟─767dce56-ef35-11ed-0ff9-b75040945ffc
+# ╠═767dce62-ef35-11ed-20d8-bd8ec3192e07
+# ╠═767dce6a-ef35-11ed-0a4a-1dbbca39603c
+# ╠═767dce7e-ef35-11ed-155e-7934366aed06
+# ╠═767dce88-ef35-11ed-30e1-39de5023cc08
+# ╠═767dce94-ef35-11ed-1395-c5ac6bc81ded
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
